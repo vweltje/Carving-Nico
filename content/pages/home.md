@@ -1,12 +1,23 @@
 ---
 template: HomePage
 slug: ''
-title: Yellowcake
-featuredImage: 'https://ucarecdn.com/159203d3-881d-4218-baa1-ca4427b48d0d/'
-subtitle: ' Welcome to the ultimate Gatsby and Netlify starter project.'
+header:
+  title: Carving Nico
+  subtitle: handgemaakte sculpturen
+  introText: Ik transformeer oude bomen naar prachtig houd sculpturen
+  button1: Bekijk mijn werk
+  backgroundImage: 'https://ucarecdn.com/2c4a567b-b7d2-4f75-8f02-9c6a86317fae/'
+work:
+  title: Laad je inspireren door mijn werk
+  tekst: >-
+    Hieronder zie je een selectie van mijn laatste werk. Geïnteresseerd  in een
+    item? Vraag de prijs op door op de knop te drukken
 meta:
   description: This is a meta description.
   title: The Ultimate Gatsby Starter
+featuredImage: 'https://ucarecdn.com/159203d3-881d-4218-baa1-ca4427b48d0d/'
+subtitle: ' Welcome to the ultimate Gatsby and Netlify starter project.'
+title: Yellowcake
 ---
 Yellowcake is an opinionated starter project created by [Thrive Digital](https://thriveweb.com.au/) a [Gold Coast Web Design](https://thriveweb.com.au/) studio. to help you create lightening fast websites with [Gatsby](https://gatsbyjs.org) and [Netlify CMS](https://netlifycms.org).
 
