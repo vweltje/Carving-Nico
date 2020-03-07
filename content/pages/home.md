@@ -9,7 +9,7 @@ header:
     sculpturen
   button1: Bekijk mijn werk
   button2: Lees over de artiest
-  backgroundImage: 'https://ucarecdn.com/5cf29be7-2b26-4087-bef5-8b0399bd1eb9/'
+  backgroundImage: 'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
 sections:
   - title: Welkom op mijn website
     tekst: >-
