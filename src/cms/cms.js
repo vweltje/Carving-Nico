@@ -8,6 +8,7 @@ import { ContactPageTemplate } from '../templates/ContactPage'
 import { DefaultPageTemplate } from '../templates/DefaultPage'
 import { AboutPageTemplate } from '../templates/AboutPage'
 import { SinglePostTemplate } from '../templates/SinglePost'
+import uploadcare from 'netlify-cms-media-library-uploadcare'
 
 if (
   window.location.hostname === 'localhost' &&
@@ -19,6 +20,8 @@ if (
 } else {
   CMS.registerPreviewStyle('/styles.css')
 }
+
+CMS.registerMediaLibrary(uploadcare)
 
 CMS.registerPreviewTemplate('home-page', ({ entry }) => (
   <HomePageTemplate {...entry.toJS().data} />

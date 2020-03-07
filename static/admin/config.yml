@@ -7,7 +7,7 @@ backend:
 media_library:
   name: uploadcare
   config:
-    publicKey: a73a170cb5cdef662983
+    publicKey: 7d21d2a3925fdc96b349
     multiple: false
     tabs: 'file camera url facebook gdrive'
     effects: 'crop,rotate,enhance,grayscale'
@@ -22,6 +22,75 @@ collections: # A list of collections the CMS should be able to edit
     editor:
       preview: true
     files:
+      - file: 'content/pages/home.md'
+        label: 'Home Page'
+        name: 'home-page'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: HomePage,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: '' }
+          - label: 'Header'
+            required: true
+            name: 'header'
+            widget: 'object'
+            fields:
+              - {
+                  label: Achtergrond afbeelding,
+                  name: backgroundImage,
+                  widget: image,
+                }
+              - { label: Titel, name: title, widget: string }
+              - { label: Subtitel, name: subtitle, widget: string }
+              - { label: Intro tekst, name: introText, widget: text }
+              - { label: Knop 1, name: button1, widget: string }
+              - { label: Knop 2, name: button2, widget: string }
+
+          - label: 'Secties'
+            name: 'sections'
+            widget: 'list'
+            required: false
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: Tekst, name: tekst, widget: markdown }
+              - { label: Afbeelding, name: image, widget: image }
+
+          - label: 'Werk'
+            required: false
+            name: 'work'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - { label: Tekst, name: tekst, widget: markdown }
+
+          - label: 'Meta'
+            required: false
+            name: 'meta'
+            widget: 'object'
+            fields:
+              - { label: Title, name: title, widget: string, required: false }
+              - {
+                  label: Description,
+                  name: description,
+                  widget: text,
+                  required: false,
+                }
+              - {
+                  label: Canonical Link,
+                  name: canonicalLink,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Noindex,
+                  name: noindex,
+                  widget: boolean,
+                  required: false,
+                }
+
       - file: 'content/pages/contact.md'
         label: 'Contact Page'
         name: 'contact-page'
@@ -169,53 +238,6 @@ collections: # A list of collections the CMS should be able to edit
               - { name: image, label: Image, widget: image }
               - { name: alt, label: Alt, widget: string }
               - { name: title, label: Title, widget: string, required: false }
-          - label: 'Meta'
-            required: false
-            name: 'meta'
-            widget: 'object'
-            fields:
-              - { label: Title, name: title, widget: string, required: false }
-              - {
-                  label: Description,
-                  name: description,
-                  widget: text,
-                  required: false,
-                }
-              - {
-                  label: Canonical Link,
-                  name: canonicalLink,
-                  widget: string,
-                  required: false,
-                }
-              - {
-                  label: Noindex,
-                  name: noindex,
-                  widget: boolean,
-                  required: false,
-                }
-
-      - file: 'content/pages/home.md'
-        label: 'Home Page'
-        name: 'home-page'
-        fields:
-          - {
-              label: Template,
-              name: template,
-              widget: hidden,
-              default: HomePage,
-            }
-          - { label: Slug, name: slug, widget: hidden, default: '' }
-          - { label: Title, name: title, widget: string }
-          - { label: Featured Image, name: featuredImage, widget: image }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Body, name: body, widget: markdown }
-          - label: 'Accordion'
-            name: 'accordion'
-            widget: 'list'
-            required: false
-            fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
-              - { label: Content, name: content, widget: text }
           - label: 'Meta'
             required: false
             name: 'meta'
