@@ -35,7 +35,7 @@ export const byCategory = (posts, title, contentType) => {
 }
 
 // Export Template for use in CMS preview
-export const BlogIndexTemplate = ({
+export const WorkPageTemplate = ({
   title,
   subtitle,
   featuredImage,
@@ -90,13 +90,13 @@ export const BlogIndexTemplate = ({
   </Location>
 )
 
-// Export Default BlogIndex for front-end
-const BlogIndex = ({ data: { page, posts, postCategories } }) => (
+// Export Default WorkPage for front-end
+const WorkPage = ({ data: { page, posts, postCategories } }) => (
   <Layout
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
   >
-    <BlogIndexTemplate
+    <WorkPageTemplate
       {...page}
       {...page.fields}
       {...page.frontmatter}
@@ -114,14 +114,14 @@ const BlogIndex = ({ data: { page, posts, postCategories } }) => (
   </Layout>
 )
 
-export default BlogIndex
+export default WorkPage
 
 export const pageQuery = graphql`
-  ## Query for BlogIndex data
+  ## Query for WorkPage data
   ## Use GraphiQL interface (http://localhost:8000/___graphql)
   ## $id is processed via gatsby-node.js
   ## query name must be unique to this file
-  query BlogIndex($id: String!) {
+  query WorkPage($id: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...Meta
       fields {

@@ -98,15 +98,15 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
 
-      - file: 'content/pages/blog.md'
-        label: 'Blog Page'
-        name: 'blog-page'
+      - file: 'content/pages/about.md'
+        label: 'Over mij'
+        name: 'over-mij'
         fields:
           - {
               label: Template,
               name: template,
               widget: hidden,
-              default: BlogIndex,
+              default: AboutPage,
             }
           - { label: Slug, name: slug, widget: hidden, default: 'blog' }
           - { label: Title, name: title, widget: string }
@@ -137,9 +137,9 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
 
-      - file: 'content/pages/components.md'
-        label: 'Components Page'
-        name: 'components-page'
+      - file: 'content/pages/work.md'
+        label: 'Mijn werk'
+        name: 'mijn-werk'
         fields:
           - {
               label: Template,
@@ -342,7 +342,7 @@ collections: # A list of collections the CMS should be able to edit
     slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: BlogIndex }
+      - { label: Template, name: template, widget: hidden, default: AboutPage }
       - { label: Title, name: title, widget: string }
       - { label: Subtitle, name: subtitle, widget: string, required: false }
       - {
