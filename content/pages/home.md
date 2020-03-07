@@ -7,7 +7,7 @@ header:
   introText: Ik transformeer oude bomen naar prachtig houd sculpturen
   button1: Bekijk mijn werk
   button2: Lees over de artiest
-  backgroundImage: 'https://ucarecdn.com/2c4a567b-b7d2-4f75-8f02-9c6a86317fae/'
+  backgroundImage: 'https://ucarecdn.com/5cf29be7-2b26-4087-bef5-8b0399bd1eb9/'
 sections:
   - title: Welkom op mijn website
     tekst: >-
