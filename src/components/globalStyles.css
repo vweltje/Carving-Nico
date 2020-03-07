@@ -1,9 +1,9 @@
 :root {
-  --primary: #00c2bd;
-  --secondary: #000;
-  --lightGrey: whitesmoke;
-  --midGrey: #cacaca;
-  --darkGrey: #272727;
+  --primary: #C79656;
+  --secondary: #D2C1AF;
+  --lightGrey: #f7f7f7;
+  --midGrey: #84827f;
+  --darkGrey: #383533;
   --danger: #ff3d3d;
   --font-primary: 'Open Sans', sans-serif;
   --font-system: system-ui; /* postcssPresetEnv */
@@ -23,7 +23,7 @@
 }
 
 ::selection {
-  background: rgba(0, 194, 189, 0.6);
+  background: rgba(199, 150, 86, 0.6);
 }
 
 html {

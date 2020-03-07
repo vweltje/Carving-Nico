@@ -10,11 +10,23 @@ export class Navigation extends Component {
   state = {
     active: false,
     activeSubNav: false,
-    currentPath: false
+    currentPath: false,
+    scrolled: false
   }
 
-  componentDidMount = () =>
+  animateOnScroll = () => {
+    this.setState({
+      scrolled:
+        document.body.scrollTop || document.documentElement.scrollTop > 0
+    })
+  }
+
+  componentDidMount = () => {
+    console.log(window)
     this.setState({ currentPath: this.props.location.pathname })
+    window.addEventListener('scroll', this.animateOnScroll)
+    this.animateOnScroll()
+  }
 
   handleMenuToggle = () => this.setState({ active: !this.state.active })
 
@@ -27,8 +39,7 @@ export class Navigation extends Component {
     })
 
   render() {
-    const { active } = this.state,
-      { subNav } = this.props,
+    const { active, scrolled } = this.state,
       NavLink = ({ to, className, children, ...props }) => (
         <Link
           to={to}
@@ -43,7 +54,11 @@ export class Navigation extends Component {
       )
 
     return (
-      <nav className={`Nav ${active ? 'Nav-active' : ''}`}>
+      <nav
+        className={`Nav ${active ? 'Nav-active' : ''} ${
+          scrolled ? 'Nav-Scrolled' : ''
+        }`}
+      >
         <div className="Nav--Container container">
           <Link to="/" onClick={this.handleLinkClick}>
             <Logo />
