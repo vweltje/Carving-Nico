@@ -12,18 +12,39 @@
   padding: 20rem 0;
 }
 
+.PageHeader .container {
+  animation: fadeIn 0.5s ease-out;
+}
+
 .PageHeader--Title {
   font-size: 6rem;
+  line-height: 7.5rem;
   margin-bottom: 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
 .PageHeader--Subtitle {
-  font-weight: 400;
-  font-size: 1.8rem;
+  font-size: inherit;
+  display: block;
+  color: var(--primary);
 }
 
-.PageHeader .container {
-  animation: fadeIn 0.5s ease-out;
+.PageHeader--Text {
+  font-size: 1.8rem;
+  max-width: 40rem;
+  width: 100%;
+  padding: 5rem 0;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
+.PageHeader--Buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.PageHeader--Buttons .Button:nth-child(even) {
+  margin-left: 2rem;
 }
 
 @media (max-width: 600px) {

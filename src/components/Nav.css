@@ -13,7 +13,7 @@
 
 .Nav-Scrolled {
   background: var(--darkGrey);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.025);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
 .Nav--Container {

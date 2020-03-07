@@ -1,6 +1,6 @@
 :root {
-  --primary: #C79656;
-  --secondary: #D2C1AF;
+  --primary: #c79656;
+  --secondary: #d2c1af;
   --lightGrey: #f7f7f7;
   --midGrey: #84827f;
   --darkGrey: #383533;
@@ -231,4 +231,8 @@ blockquote {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.Button-secondary {
+  background: var(--secondary);
+  color: white;
 }

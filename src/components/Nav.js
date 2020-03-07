@@ -22,7 +22,6 @@ export class Navigation extends Component {
   }
 
   componentDidMount = () => {
-    console.log(window)
     this.setState({ currentPath: this.props.location.pathname })
     window.addEventListener('scroll', this.animateOnScroll)
     this.animateOnScroll()
