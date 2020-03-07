@@ -4,7 +4,9 @@ slug: ''
 header:
   title: Carving Nico
   subtitle: handgemaakte sculpturen
-  introText: Ik transformeer oude bomen naar prachtig houd sculpturen
+  introText: >-
+    Met mijn kettingzaag transformeer ik oude bomen naar prachtig houd
+    sculpturen
   button1: Bekijk mijn werk
   button2: Lees over de artiest
   backgroundImage: 'https://ucarecdn.com/5cf29be7-2b26-4087-bef5-8b0399bd1eb9/'
