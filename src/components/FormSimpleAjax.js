@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
+import { Link } from 'gatsby'
 import { stringify } from 'qs'
 import { serialize } from 'dom-form-serializer'
 
@@ -77,97 +78,63 @@ class Form extends React.Component {
               <input
                 className="Form--Input Form--InputText"
                 type="text"
-                placeholder="Firstname"
-                name="firstname"
+                placeholder="Voornaam"
+                name="voornaam"
                 required
               />
-              <span>Firstname</span>
+              <span>Voornaam</span>
             </label>
             <label className="Form--Label">
               <input
                 className="Form--Input Form--InputText"
                 type="text"
-                placeholder="Lastname"
-                name="lastname"
+                placeholder="Achternaam"
+                name="achternaam"
                 required
               />
-              <span>Lastname</span>
+              <span>Achternaam</span>
             </label>
           </div>
-          <fieldset>
-            <label className="Form--Label Form--Radio">
-              <input
-                className="Form--RadioInput"
-                type="radio"
-                name="gender"
-                value="male"
-                defaultChecked
-              />
-              <span>Male</span>
-            </label>
-            <label className="Form--Label Form--Radio">
-              <input
-                className="Form--RadioInput"
-                type="radio"
-                name="gender"
-                value="female"
-              />
-              <span>Female</span>
-            </label>
-          </fieldset>
           <label className="Form--Label">
             <input
               className="Form--Input Form--InputText"
               type="email"
-              placeholder="Email"
-              name="emailAddress"
+              placeholder="E-mailadres"
+              name="e-mail-adres"
               required
             />
-            <span>Email address</span>
-          </label>
-          <label className="Form--Label has-arrow">
-            <select
-              className="Form--Input Form--Select"
-              name="type"
-              defaultValue="Type of Enquiry"
-              required
-            >
-              <option disabled hidden>
-                Type of Enquiry
-              </option>
-              <option>Need to know more</option>
-              <option>Found a bug</option>
-              <option>Want to say hello</option>
-            </select>
+            <span>E-mailadres</span>
           </label>
           <label className="Form--Label">
             <textarea
               className="Form--Input Form--Textarea Form--InputText"
-              placeholder="Message"
-              name="message"
+              placeholder="Bericht"
+              name="bericht"
               rows="10"
               required
             />
-            <span>Message</span>
+            <span>Bericht</span>
           </label>
           <label className="Form--Label Form-Checkbox">
             <input
               className="Form--Input Form--Textarea Form--CheckboxInput"
-              name="newsletter"
+              name="voorwaarden"
               type="checkbox"
             />
-            <span>Get news updates</span>
+            <span>
+              Ik ga akkoord met de <Link to="/voorwarden">voorwaarden</Link>
+            </span>
           </label>
           <div
             className="g-recaptcha"
-            data-sitekey="6LfKN3kUAAAAAGIM1CbXmaRZx3LIh_W2twn1tzkA"
+            data-sitekey="6Lelq98UAAAAAO-5-dEftEsN3FwQc3VGz8Malquc"
           />
           {!!subject && <input type="hidden" name="subject" value={subject} />}
           <input type="hidden" name="form-name" value={name} />
           <input
             className="Button Form--SubmitButton"
             type="submit"
-            value="Enquire"
+            value="Verstuur"
             disabled={this.state.disabled}
           />
         </form>

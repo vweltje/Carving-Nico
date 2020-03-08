@@ -11,26 +11,35 @@ import './ContactPage.css'
 
 // Export Template for use in CMS preview
 export const ContactPageTemplate = ({
+  header,
   body,
-  title,
-  subtitle,
-  featuredImage,
   address,
   phone,
-  email,
-  locations
+  email
 }) => (
   <main className="Contact">
     <PageHeader
-      title={title}
-      subtitle={subtitle}
-      backgroundImage={featuredImage}
+      large
+      title={header.title}
+      subtitle={header.subtitle}
+      content={header.introText}
+      backgroundImage={header.backgroundImage}
     />
     <section className="section Contact--Section1">
       <div className="container Contact--Section1--Container">
         <div>
           <Content source={body} />
           <div className="Contact--Details">
+            {email && (
+              <a className="Contact--Details--Item" href={`mailto:${email}`}>
+                <Mail /> {email}
+              </a>
+            )}
+            {phone && (
+              <a className="Contact--Details--Item" href={`tel:${phone}`}>
+                <Smartphone /> {phone}
+              </a>
+            )}
             {address && (
               <a
                 className="Contact--Details--Item"
@@ -43,26 +52,14 @@ export const ContactPageTemplate = ({
                 <MapPin /> {address}
               </a>
             )}
-            {phone && (
-              <a className="Contact--Details--Item" href={`tel:${phone}`}>
-                <Smartphone /> {phone}
-              </a>
-            )}
-            {email && (
-              <a className="Contact--Details--Item" href={`mailto:${email}`}>
-                <Mail /> {email}
-              </a>
-            )}
           </div>
         </div>
 
         <div>
-          <FormSimpleAjax name="Simple Form Ajax" />
+          <FormSimpleAjax name="Contact" />
         </div>
       </div>
     </section>
-
-    <GoogleMap locations={locations} />
   </main>
 )
 
@@ -83,18 +80,15 @@ export const pageQuery = graphql`
       ...Meta
       html
       frontmatter {
-        title
-        template
-        subtitle
-        featuredImage
+        header {
+          backgroundImage
+          title
+          subtitle
+          introText
+        }
         address
         phone
         email
-        locations {
-          mapLink
-          lat
-          lng
-        }
       }
     }
   }

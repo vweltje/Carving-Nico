@@ -25,8 +25,6 @@ export const HomePageTemplate = ({ header, sections, work }) => (
           text: header.button2
         }
       ]}
-      button1={header.button1}
-      button2={header.button2}
       backgroundImage={header.backgroundImage}
     />
     {sections &&
