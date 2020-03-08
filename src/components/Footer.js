@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 import InstagramFeed from './InstagramFeed'
 import './Footer.css'
 
@@ -7,7 +8,8 @@ export default () => (
     <footer className="footer">
       <div className="container taCenter">
         <span>
-          © Copyright {new Date().getFullYear()} Carving Nico. Developed door{' '}
+          © Copyright {new Date().getFullYear()}{' '}
+          <Link to="/">Carving Nico</Link>. Site ontwikkeld door{' '}
           <a href="http://vweltje.nl/">vweltje</a>.
         </span>
       </div>
