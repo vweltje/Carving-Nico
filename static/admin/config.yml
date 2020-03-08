@@ -52,14 +52,14 @@ collections: # A list of collections the CMS should be able to edit
           - label: 'Secties'
             name: 'sections'
             widget: 'list'
-            required: false
+            required: true
             fields:
               - { label: 'Title', name: 'title', widget: 'string' }
               - { label: Tekst, name: tekst, widget: markdown }
               - { label: Afbeelding, name: image, widget: image }
 
           - label: 'Werk'
-            required: false
+            required: true
             name: 'work'
             widget: 'object'
             fields:
@@ -102,46 +102,22 @@ collections: # A list of collections the CMS should be able to edit
               default: ContactPage,
             }
           - { label: Slug, name: slug, widget: hidden, default: 'contact' }
-          - { label: Title, name: title, widget: string }
-          - {
-              label: Featured Image,
-              name: featuredImage,
-              widget: image,
-              options:
-                { media_library: { config: { imageShrink: 2600x2600 } } },
-            }
-          - { label: Subtitle, name: subtitle, widget: markdown }
+          - label: 'Header'
+            required: true
+            name: 'header'
+            widget: 'object'
+            fields:
+              - {
+                  label: Achtergrond afbeelding,
+                  name: backgroundImage,
+                  widget: image,
+                }
+              - { label: Titel, name: title, widget: string }
+              - { label: Subtitel, name: subtitle, widget: string }
           - { label: Body, name: body, widget: markdown }
           - { label: Address, name: address, widget: text }
           - { label: Phone, name: phone, widget: string }
           - { label: Email Address, name: email, widget: string }
-          - name: locations
-            label: locations
-            widget: list
-            fields:
-              - {
-                  name: mapLink,
-                  label: mapLink,
-                  widget: string,
-                  required: false,
-                  default: '',
-                }
-              - {
-                  name: lat,
-                  label: latitude,
-                  widget: string,
-                  required: false,
-                  delete: false,
-                  default: '',
-                }
-              - {
-                  name: lng,
-                  label: longitude,
-                  widget: string,
-                  required: false,
-                  delete: false,
-                  default: '',
-                }
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -190,11 +166,10 @@ collections: # A list of collections the CMS should be able to edit
                 }
               - { label: Titel, name: title, widget: string }
               - { label: Subtitel, name: subtitle, widget: string }
-              - { label: Intro tekst, name: introText, widget: text }
           - label: 'Over mij'
             name: 'aboutSection'
             widget: 'object'
-            required: false
+            required: true
             fields:
               - { label: 'Title', name: 'title', widget: 'string' }
               - { label: Tekst, name: tekst, widget: markdown }
