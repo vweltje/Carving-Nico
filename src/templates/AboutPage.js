@@ -10,63 +10,15 @@ import Gallery from '../components/Gallery'
 import Popup from '../components/Popup'
 
 // Export Template for use in CMS preview
-export const AboutPageTemplate = ({
-  title,
-  subtitle,
-  featuredImage,
-  section1,
-  section2,
-  video,
-  videoPoster,
-  videoTitle,
-  accordion,
-  body,
-  gallery
-}) => (
+export const AboutPageTemplate = ({ header }) => (
   <main>
     <PageHeader
-      title={title}
-      subtitle={subtitle}
-      backgroundImage={featuredImage}
+      large
+      title={header.title}
+      subtitle={header.subtitle}
+      content={header.introText}
+      backgroundImage={header.backgroundImage}
     />
-    <section className="section">
-      <div className="container">
-        <Content source={section1} />
-      </div>
-    </section>
-
-    <section className="section">
-      <div className="container">
-        <h2>Our gallery component</h2>
-        <Gallery images={gallery} />
-      </div>
-    </section>
-
-    <section className="section">
-      <div className="container">
-        <Content source={section2} />
-      </div>
-    </section>
-
-    <section className="BackgroundVideo-section section">
-      <BackgroundVideo poster={videoPoster} videoTitle={videoTitle}>
-        {video && <source src={video} type="video/mp4" />}
-      </BackgroundVideo>
-    </section>
-
-    <section className="section">
-      <div className="container">
-        <Accordion items={accordion} />
-      </div>
-    </section>
-
-    <section className="section">
-      <div className="container">
-        <Popup>
-          <Content source={section1} />
-        </Popup>
-      </div>
-    </section>
   </main>
 )
 
@@ -85,21 +37,19 @@ export const pageQuery = graphql`
   query AboutPage($id: String!) {
     page: markdownRemark(id: { eq: $id }) {
       ...Meta
-      ...Gallery
       html
       frontmatter {
-        title
-        template
-        subtitle
-        featuredImage
-        section1
-        section2
-        video
-        videoPoster
-        videoTitle
-        accordion {
+        header {
+          backgroundImage
           title
-          description
+          subtitle
+          introText
+        }
+        aboutSection {
+          title
+          tekst
+          image
+          quote
         }
       }
     }
