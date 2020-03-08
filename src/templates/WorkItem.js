@@ -5,9 +5,9 @@ import { ChevronLeft } from 'react-feather'
 
 import Content from '../components/Content'
 import Layout from '../components/Layout'
-import './SinglePost.css'
+import './WorkItem.css'
 
-export const SinglePostTemplate = ({
+export const WorkItemTemplate = ({
   title,
   date,
   body,
@@ -17,19 +17,19 @@ export const SinglePostTemplate = ({
 }) => (
   <main>
     <article
-      className="SinglePost section light"
+      className="WorkItem section light"
       itemScope
       itemType="http://schema.org/BlogPosting"
     >
       <div className="container skinny">
-        <Link className="SinglePost--BackButton" to="/blog/">
+        <Link className="WorkItem--BackButton" to="/blog/">
           <ChevronLeft /> BACK
         </Link>
-        <div className="SinglePost--Content relative">
-          <div className="SinglePost--Meta">
+        <div className="WorkItem--Content relative">
+          <div className="WorkItem--Meta">
             {date && (
               <time
-                className="SinglePost--Meta--Date"
+                className="WorkItem--Meta--Date"
                 itemProp="dateCreated pubdate datePublished"
                 date={date}
               >
@@ -40,10 +40,7 @@ export const SinglePostTemplate = ({
               <Fragment>
                 <span>|</span>
                 {categories.map((cat, index) => (
-                  <span
-                    key={cat.category}
-                    className="SinglePost--Meta--Category"
-                  >
+                  <span key={cat.category} className="WorkItem--Meta--Category">
                     {cat.category}
                     {/* Add a comma on all but last category */}
                     {index !== categories.length - 1 ? ',' : ''}
@@ -54,19 +51,19 @@ export const SinglePostTemplate = ({
           </div>
 
           {title && (
-            <h1 className="SinglePost--Title" itemProp="title">
+            <h1 className="WorkItem--Title" itemProp="title">
               {title}
             </h1>
           )}
 
-          <div className="SinglePost--InnerContent">
+          <div className="WorkItem--InnerContent">
             <Content source={body} />
           </div>
 
-          <div className="SinglePost--Pagination">
+          <div className="WorkItem--Pagination">
             {prevPostURL && (
               <Link
-                className="SinglePost--Pagination--Link prev"
+                className="WorkItem--Pagination--Link prev"
                 to={prevPostURL}
               >
                 Previous Post
@@ -74,7 +71,7 @@ export const SinglePostTemplate = ({
             )}
             {nextPostURL && (
               <Link
-                className="SinglePost--Pagination--Link next"
+                className="WorkItem--Pagination--Link next"
                 to={nextPostURL}
               >
                 Next Post
@@ -87,15 +84,15 @@ export const SinglePostTemplate = ({
   </main>
 )
 
-// Export Default SinglePost for front-end
-const SinglePost = ({ data: { post, allPosts } }) => {
+// Export Default WorkItem for front-end
+const WorkItem = ({ data: { post, allPosts } }) => {
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
   return (
     <Layout
       meta={post.frontmatter.meta || false}
       title={post.frontmatter.title || false}
     >
-      <SinglePostTemplate
+      <WorkItemTemplate
         {...post}
         {...post.frontmatter}
         body={post.html}
@@ -106,14 +103,14 @@ const SinglePost = ({ data: { post, allPosts } }) => {
   )
 }
 
-export default SinglePost
+export default WorkItem
 
 export const pageQuery = graphql`
-  ## Query for SinglePost data
+  ## Query for WorkItem data
   ## Use GraphiQL interface (http://localhost:8000/___graphql)
   ## $id is processed via gatsby-node.js
   ## query name must be unique to this file
-  query SinglePost($id: String!) {
+  query WorkItem($id: String!) {
     post: markdownRemark(id: { eq: $id }) {
       ...Meta
       html

@@ -153,7 +153,7 @@ collections: # A list of collections the CMS should be able to edit
               widget: hidden,
               default: AboutPage,
             }
-          - { label: Slug, name: slug, widget: hidden, default: 'blog' }
+          - { label: Slug, name: slug, widget: hidden, default: 'over-mij' }
           - label: 'Header'
             required: true
             name: 'header'
@@ -211,7 +211,7 @@ collections: # A list of collections the CMS should be able to edit
               widget: hidden,
               default: WorkPage,
             }
-          - { label: Slug, name: slug, widget: hidden, default: 'components' }
+          - { label: Slug, name: slug, widget: hidden, default: 'mijn-werk' }
           - label: 'Header'
             required: true
             name: 'header'
@@ -324,7 +324,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: 'Afbeeldingen'
         name: 'images'
         widget: 'list'
-        required: true
+        required: false
         fields:
           - {
               label: Korte beschrijving,
