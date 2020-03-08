@@ -67,8 +67,8 @@ class Form extends React.Component {
           name={name}
           action={action}
           onSubmit={this.handleSubmit}
-          data-netlify=""
-          netlify-recaptcha=""
+          data-netlify="true"
+          data-netlify-recaptcha="true"
         >
           {this.state.alert && (
             <div className="Form--Alert">{this.state.alert}</div>
@@ -126,9 +126,9 @@ class Form extends React.Component {
             </span>
           </label>
           <div
-            className="g-recaptcha"
-            data-sitekey="6Lelq98UAAAAAO-5-dEftEsN3FwQc3VGz8Malquc"
-          />
+            class="g-recaptcha"
+            data-sitekey="6LfIq98UAAAAALcfJLl1wstv3pJlp5FweJWS34Fs"
+          ></div>
           {!!subject && <input type="hidden" name="subject" value={subject} />}
           <input type="hidden" name="form-name" value={name} />
           <input
