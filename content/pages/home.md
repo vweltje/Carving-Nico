@@ -18,8 +18,7 @@ sections:
 
       Ik gebruik verschillende kettingzagen en beitels om dode, omgevallen bomen
       te recyclen, en maak er prachtige kunstwerken van.
-    image: >-
-      https://ucarecdn.com/aebd4212-fa41-49ce-a4c9-cb53f423a4f2/-/crop/1630x2037/0,263/-/preview/
+    image: 'https://ucarecdn.com/209e039d-8929-4bb7-93fc-84a69500a4c9/'
   - title: Wie ben ik
     tekst: >-
       > Ik zal me even voorstellen
