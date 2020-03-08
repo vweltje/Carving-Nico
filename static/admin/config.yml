@@ -113,8 +113,18 @@ collections: # A list of collections the CMS should be able to edit
                   widget: image,
                 }
               - { label: Titel, name: title, widget: string }
-              - { label: Subtitel, name: subtitle, widget: string }
-              - { label: Intro tekst, name: introText, widget: text }
+              - {
+                  label: Subtitel,
+                  name: subtitle,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Intro tekst,
+                  name: introText,
+                  widget: text,
+                  required: false,
+                }
           - { label: Tekst sectie, name: textSection, widget: markdown }
           - {
               label: titel - Werk overzicht,
@@ -168,7 +178,18 @@ collections: # A list of collections the CMS should be able to edit
                   widget: image,
                 }
               - { label: Titel, name: title, widget: string }
-              - { label: Subtitel, name: subtitle, widget: string }
+              - {
+                  label: Subtitel,
+                  name: subtitle,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Intro tekst,
+                  name: introText,
+                  widget: text,
+                  required: false,
+                }
           - label: 'Over mij'
             name: 'aboutSection'
             widget: 'object'
@@ -226,7 +247,18 @@ collections: # A list of collections the CMS should be able to edit
                   widget: image,
                 }
               - { label: Titel, name: title, widget: string }
-              - { label: Subtitel, name: subtitle, widget: string }
+              - {
+                  label: Subtitel,
+                  name: subtitle,
+                  widget: string,
+                  required: false,
+                }
+              - {
+                  label: Intro tekst,
+                  name: introText,
+                  widget: text,
+                  required: false,
+                }
           - { label: Body, name: body, widget: markdown }
           - { label: Adres, name: address, widget: text }
           - { label: Telefoonnummer, name: phone, widget: string }
