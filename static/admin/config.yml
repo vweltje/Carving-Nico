@@ -91,17 +91,17 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
 
-      - file: 'content/pages/contact.md'
-        label: 'Contact'
-        name: 'contact-page'
+      - file: 'content/pages/work.md'
+        label: 'Mijn werk'
+        name: 'mijn-werk'
         fields:
           - {
               label: Template,
               name: template,
               widget: hidden,
-              default: ContactPage,
+              default: WorkPage,
             }
-          - { label: Slug, name: slug, widget: hidden, default: 'contact' }
+          - { label: Slug, name: slug, widget: hidden, default: 'mijn-werk' }
           - label: 'Header'
             required: true
             name: 'header'
@@ -114,10 +114,13 @@ collections: # A list of collections the CMS should be able to edit
                 }
               - { label: Titel, name: title, widget: string }
               - { label: Subtitel, name: subtitle, widget: string }
-          - { label: Body, name: body, widget: markdown }
-          - { label: Adres, name: address, widget: text }
-          - { label: Telefoonnummer, name: phone, widget: string }
-          - { label: E-mailaddress, name: email, widget: string }
+              - { label: Intro tekst, name: introText, widget: text }
+          - { label: Tekst sectie, name: textSection, widget: markdown }
+          - {
+              label: titel - Werk overzicht,
+              name: workGridTitle,
+              widget: string,
+            }
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -201,17 +204,17 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
 
-      - file: 'content/pages/work.md'
-        label: 'Mijn werk'
-        name: 'mijn-werk'
+      - file: 'content/pages/contact.md'
+        label: 'Contact'
+        name: 'contact-page'
         fields:
           - {
               label: Template,
               name: template,
               widget: hidden,
-              default: WorkPage,
+              default: ContactPage,
             }
-          - { label: Slug, name: slug, widget: hidden, default: 'mijn-werk' }
+          - { label: Slug, name: slug, widget: hidden, default: 'contact' }
           - label: 'Header'
             required: true
             name: 'header'
@@ -224,13 +227,10 @@ collections: # A list of collections the CMS should be able to edit
                 }
               - { label: Titel, name: title, widget: string }
               - { label: Subtitel, name: subtitle, widget: string }
-              - { label: Intro tekst, name: introText, widget: text }
-          - { label: Tekst sectie, name: textSection, widget: markdown }
-          - {
-              label: titel - Werk overzicht,
-              name: workGridTitle,
-              widget: string,
-            }
+          - { label: Body, name: body, widget: markdown }
+          - { label: Adres, name: address, widget: text }
+          - { label: Telefoonnummer, name: phone, widget: string }
+          - { label: E-mailaddress, name: email, widget: string }
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -255,48 +255,6 @@ collections: # A list of collections the CMS should be able to edit
                   widget: boolean,
                   required: false,
                 }
-
-  - name: info-page
-    label: Informatie pagina's
-    editor:
-      preview: true
-    folder: content/infoPages
-    slug: '{{slug}}'
-    create: true # Allow users to create new documents in this collection
-    fields:
-      - {
-          label: Template,
-          name: template,
-          widget: hidden,
-          default: DefaultPage,
-        }
-      - { label: Slug, name: slug, widget: string }
-      - { label: Titel, name: title, widget: string }
-      - { label: Body, name: body, widget: markdown }
-      - label: 'Meta'
-        required: false
-        name: 'meta'
-        widget: 'object'
-        fields:
-          - { label: Titel, name: title, widget: string, required: false }
-          - {
-              label: Beschrijving,
-              name: description,
-              widget: text,
-              required: false,
-            }
-          - {
-              label: Canonical Link,
-              name: canonicalLink,
-              widget: string,
-              required: false,
-            }
-          - {
-              label: SEO - niet indexeren,
-              name: noindex,
-              widget: boolean,
-              required: false,
-            }
 
   - name: work
     label: Werk
@@ -368,6 +326,48 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: WorkPage }
       - { label: Naam, name: title, widget: string }
+      - label: 'Meta'
+        required: false
+        name: 'meta'
+        widget: 'object'
+        fields:
+          - { label: Titel, name: title, widget: string, required: false }
+          - {
+              label: Beschrijving,
+              name: description,
+              widget: text,
+              required: false,
+            }
+          - {
+              label: Canonical Link,
+              name: canonicalLink,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: SEO - niet indexeren,
+              name: noindex,
+              widget: boolean,
+              required: false,
+            }
+
+  - name: info-page
+    label: Informatie pagina's
+    editor:
+      preview: true
+    folder: content/infoPages
+    slug: '{{slug}}'
+    create: true # Allow users to create new documents in this collection
+    fields:
+      - {
+          label: Template,
+          name: template,
+          widget: hidden,
+          default: DefaultPage,
+        }
+      - { label: Slug, name: slug, widget: string }
+      - { label: Titel, name: title, widget: string }
+      - { label: Body, name: body, widget: markdown }
       - label: 'Meta'
         required: false
         name: 'meta'
