@@ -23,7 +23,7 @@ collections: # A list of collections the CMS should be able to edit
       preview: true
     files:
       - file: 'content/pages/home.md'
-        label: 'Home pagina'
+        label: 'Landingspagina'
         name: 'home-page'
         fields:
           - {
@@ -92,7 +92,7 @@ collections: # A list of collections the CMS should be able to edit
                 }
 
       - file: 'content/pages/contact.md'
-        label: 'Contact Page'
+        label: 'Contact'
         name: 'contact-page'
         fields:
           - {
@@ -145,7 +145,7 @@ collections: # A list of collections the CMS should be able to edit
 
       - file: 'content/pages/about.md'
         label: 'Over mij'
-        name: 'over-mij'
+        name: 'about-page'
         fields:
           - {
               label: Template,
@@ -256,7 +256,7 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
 
-  - name: infoPages
+  - name: info-page
     label: Informatie pagina's
     editor:
       preview: true

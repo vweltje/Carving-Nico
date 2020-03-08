@@ -7,7 +7,7 @@ import { WorkPage } from '../templates/WorkPage'
 import { ContactPageTemplate } from '../templates/ContactPage'
 import { DefaultPageTemplate } from '../templates/DefaultPage'
 import { AboutPageTemplate } from '../templates/AboutPage'
-import { SinglePostTemplate } from '../templates/SinglePost'
+import { WorkItemTemplate } from '../templates/WorkItem'
 import uploadcare from 'netlify-cms-media-library-uploadcare'
 
 if (
@@ -32,12 +32,12 @@ CMS.registerPreviewTemplate('components-page', ({ entry }) => (
 CMS.registerPreviewTemplate('contact-page', ({ entry }) => (
   <ContactPageTemplate {...entry.toJS().data} />
 ))
-CMS.registerPreviewTemplate('infoPages', ({ entry }) => (
+CMS.registerPreviewTemplate('info-page', ({ entry }) => (
   <DefaultPageTemplate {...entry.toJS().data} />
 ))
-CMS.registerPreviewTemplate('blog-page', ({ entry }) => (
+CMS.registerPreviewTemplate('about-page', ({ entry }) => (
   <AboutPageTemplate {...entry.toJS().data} />
 ))
 CMS.registerPreviewTemplate('posts', ({ entry }) => (
-  <SinglePostTemplate {...entry.toJS().data} />
+  <WorkItemTemplate {...entry.toJS().data} />
 ))

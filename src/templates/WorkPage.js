@@ -129,10 +129,6 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        excerpt
-        template
-        subtitle
-        featuredImage
       }
     }
 
@@ -149,9 +145,6 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
-            categories {
-              category
-            }
             featuredImage
           }
         }
