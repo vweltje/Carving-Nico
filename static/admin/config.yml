@@ -17,13 +17,13 @@ media_library:
 
 collections: # A list of collections the CMS should be able to edit
   - name: 'pages'
-    label: 'Page'
+    label: "Pagina's"
     delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: true
     files:
       - file: 'content/pages/home.md'
-        label: 'Home Page'
+        label: 'Home pagina'
         name: 'home-page'
         fields:
           - {
@@ -54,7 +54,7 @@ collections: # A list of collections the CMS should be able to edit
             widget: 'list'
             required: true
             fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Titel', name: 'title', widget: 'string' }
               - { label: Tekst, name: tekst, widget: markdown }
               - { label: Afbeelding, name: image, widget: image }
 
@@ -63,7 +63,7 @@ collections: # A list of collections the CMS should be able to edit
             name: 'work'
             widget: 'object'
             fields:
-              - { label: Title, name: title, widget: string, required: false }
+              - { label: Titel, name: title, widget: string, required: false }
               - { label: Tekst, name: tekst, widget: markdown }
 
           - label: 'Meta'
@@ -71,9 +71,9 @@ collections: # A list of collections the CMS should be able to edit
             name: 'meta'
             widget: 'object'
             fields:
-              - { label: Title, name: title, widget: string, required: false }
+              - { label: Titel, name: title, widget: string, required: false }
               - {
-                  label: Description,
+                  label: Beschrijving,
                   name: description,
                   widget: text,
                   required: false,
@@ -85,7 +85,7 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
               - {
-                  label: Noindex,
+                  label: SEO - Niet indexeren,
                   name: noindex,
                   widget: boolean,
                   required: false,
@@ -115,17 +115,17 @@ collections: # A list of collections the CMS should be able to edit
               - { label: Titel, name: title, widget: string }
               - { label: Subtitel, name: subtitle, widget: string }
           - { label: Body, name: body, widget: markdown }
-          - { label: Address, name: address, widget: text }
-          - { label: Phone, name: phone, widget: string }
-          - { label: Email Address, name: email, widget: string }
+          - { label: Adres, name: address, widget: text }
+          - { label: Telefoonnummer, name: phone, widget: string }
+          - { label: E-mailaddress, name: email, widget: string }
           - label: 'Meta'
             required: false
             name: 'meta'
             widget: 'object'
             fields:
-              - { label: Title, name: title, widget: string, required: false }
+              - { label: Titel, name: title, widget: string, required: false }
               - {
-                  label: Description,
+                  label: Beschrijving,
                   name: description,
                   widget: text,
                   required: false,
@@ -137,7 +137,7 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
               - {
-                  label: Noindex,
+                  label: SEO - niet indexeren,
                   name: noindex,
                   widget: boolean,
                   required: false,
@@ -171,7 +171,7 @@ collections: # A list of collections the CMS should be able to edit
             widget: 'object'
             required: true
             fields:
-              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: 'Titel', name: 'title', widget: 'string' }
               - { label: Tekst, name: tekst, widget: markdown }
               - { label: Afbeelding, name: image, widget: image }
               - { label: Quote, name: quote, widget: string }
@@ -181,9 +181,9 @@ collections: # A list of collections the CMS should be able to edit
             name: 'meta'
             widget: 'object'
             fields:
-              - { label: Title, name: title, widget: string, required: false }
+              - { label: Titel, name: title, widget: string, required: false }
               - {
-                  label: Description,
+                  label: Beschrijving,
                   name: description,
                   widget: text,
                   required: false,
@@ -195,7 +195,7 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
               - {
-                  label: Noindex,
+                  label: SEO - niet indexeren,
                   name: noindex,
                   widget: boolean,
                   required: false,
@@ -209,7 +209,7 @@ collections: # A list of collections the CMS should be able to edit
               label: Template,
               name: template,
               widget: hidden,
-              default: ComponentsPage,
+              default: WorkPage,
             }
           - { label: Slug, name: slug, widget: hidden, default: 'components' }
           - label: 'Header'
@@ -225,7 +225,7 @@ collections: # A list of collections the CMS should be able to edit
               - { label: Titel, name: title, widget: string }
               - { label: Subtitel, name: subtitle, widget: string }
               - { label: Intro tekst, name: introText, widget: text }
-          - { label: tekst sectie, name: textSection, widget: markdown }
+          - { label: Tekst sectie, name: textSection, widget: markdown }
           - {
               label: titel - Werk overzicht,
               name: workGridTitle,
@@ -236,9 +236,9 @@ collections: # A list of collections the CMS should be able to edit
             name: 'meta'
             widget: 'object'
             fields:
-              - { label: Title, name: title, widget: string, required: false }
+              - { label: Titel, name: title, widget: string, required: false }
               - {
-                  label: Description,
+                  label: Beschrijving,
                   name: description,
                   widget: text,
                   required: false,
@@ -250,18 +250,18 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
               - {
-                  label: Noindex,
+                  label: SEO - niet indexeren,
                   name: noindex,
                   widget: boolean,
                   required: false,
                 }
 
   - name: infoPages
-    label: Info Page
+    label: Informatie pagina's
     editor:
       preview: true
     folder: content/infoPages
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields:
       - {
@@ -271,17 +271,16 @@ collections: # A list of collections the CMS should be able to edit
           default: DefaultPage,
         }
       - { label: Slug, name: slug, widget: string }
-      - { label: Title, name: title, widget: string }
-      - { label: Featured Image, name: featuredImage, widget: image }
+      - { label: Titel, name: title, widget: string }
       - { label: Body, name: body, widget: markdown }
       - label: 'Meta'
         required: false
         name: 'meta'
         widget: 'object'
         fields:
-          - { label: Title, name: title, widget: string, required: false }
+          - { label: Titel, name: title, widget: string, required: false }
           - {
-              label: Description,
+              label: Beschrijving,
               name: description,
               widget: text,
               required: false,
@@ -292,51 +291,56 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }
+          - {
+              label: SEO - niet indexeren,
+              name: noindex,
+              widget: boolean,
+              required: false,
+            }
 
-  - name: posts
-    label: Post
+  - name: work
+    label: Werk
     editor:
       preview: true
-    folder: content/posts
+    folder: content/work
     slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: SinglePost }
-      - { label: Title, name: title, widget: string }
-      - label: 'Status'
-        name: 'status'
-        widget: 'select'
-        options: ['Published', 'Featured', 'Draft']
-        default: 'Published'
-      - { label: Date / Order, name: date, widget: date }
-      - {
-          label: Featured Image,
-          name: featuredImage,
-          widget: image,
-          required: false,
-        }
-      - { label: Excerpt, name: excerpt, widget: text }
-      - { label: Content, name: body, widget: markdown }
-      - label: 'Categories'
+      - { label: Template, name: template, widget: hidden, default: WorkItem }
+      - { label: Titel, name: title, widget: string }
+      - { label: Datum, name: date, widget: date }
+      - { label: Beschrijving, name: body, widget: markdown }
+      - label: 'Categorieën'
         name: 'categories'
         widget: 'list'
         required: false
         fields:
-          - label: 'Category'
+          - label: 'Categorie'
             name: 'category'
             widget: 'relation'
-            collection: 'postCategories'
+            collection: 'workCategories'
             searchFields: ['title']
             valueField: 'title'
+      - label: 'Afbeeldingen'
+        name: 'images'
+        widget: 'list'
+        required: true
+        fields:
+          - {
+              label: Korte beschrijving,
+              name: shortDescription,
+              widget: 'string',
+            }
+          - { label: Afbeelding, name: image, widget: image }
+
       - label: 'Meta'
         required: false
         name: 'meta'
         widget: 'object'
         fields:
-          - { label: Title, name: title, widget: string, required: false }
+          - { label: Titel, name: title, widget: string, required: false }
           - {
-              label: Description,
+              label: Beschrijving,
               name: description,
               widget: text,
               required: false,
@@ -347,33 +351,31 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }
+          - {
+              label: SEO - niet indexeren,
+              name: noindex,
+              widget: boolean,
+              required: false,
+            }
 
-  - name: postCategories
-    label: Post Category
+  - name: workCategories
+    label: Werk categorieën
     editor:
       preview: false
-    folder: content/postCategories
+    folder: content/workCategories
     slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
-      - { label: Template, name: template, widget: hidden, default: AboutPage }
-      - { label: Title, name: title, widget: string }
-      - { label: Subtitle, name: subtitle, widget: string, required: false }
-      - {
-          label: Featured Image,
-          name: featuredImage,
-          widget: image,
-          required: false,
-        }
+      - { label: Template, name: template, widget: hidden, default: WorkPage }
+      - { label: Naam, name: title, widget: string }
       - label: 'Meta'
         required: false
         name: 'meta'
         widget: 'object'
         fields:
-          - { label: Title, name: title, widget: string, required: false }
+          - { label: Titel, name: title, widget: string, required: false }
           - {
-              label: Description,
+              label: Beschrijving,
               name: description,
               widget: text,
               required: false,
@@ -384,7 +386,12 @@ collections: # A list of collections the CMS should be able to edit
               widget: string,
               required: false,
             }
-          - { label: Noindex, name: noindex, widget: boolean, required: false }
+          - {
+              label: SEO - niet indexeren,
+              name: noindex,
+              widget: boolean,
+              required: false,
+            }
 
   - name: 'settings'
     label: 'Globale instellingen'
@@ -396,7 +403,7 @@ collections: # A list of collections the CMS should be able to edit
         label: 'Globale instellingen'
         name: 'global-settings'
         fields:
-          - { label: Site Title, name: siteTitle, widget: string }
+          - { label: Site Titel, name: siteTitle, widget: string }
           - { label: Site Url, name: siteUrl, widget: string, required: false }
           - {
               label: Website beschrijving,
@@ -408,7 +415,12 @@ collections: # A list of collections the CMS should be able to edit
             name: socialMediaCard
             widget: object
             fields:
-              - { label: Image, name: image, widget: image, required: false }
+              - {
+                  label: Afbeelding,
+                  name: image,
+                  widget: image,
+                  required: false,
+                }
           - {
               label: Google Analytics Tracking Id (ALLEEN VOOR VINCENT),
               name: googleTrackingId,
