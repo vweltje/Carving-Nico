@@ -300,17 +300,12 @@ collections: # A list of collections the CMS should be able to edit
       - { label: Titel, name: title, widget: string }
       - { label: Datum, name: date, widget: date }
       - { label: Beschrijving, name: body, widget: markdown }
-      - label: 'Categorieën'
-        name: 'categories'
-        widget: 'list'
-        required: false
-        fields:
-          - label: 'Categorie'
-            name: 'category'
-            widget: 'relation'
-            collection: 'workCategories'
-            searchFields: ['title']
-            valueField: 'title'
+      - label: 'Categorie'
+        name: 'category'
+        widget: 'relation'
+        collection: 'workCategories'
+        searchFields: ['title']
+        valueField: 'title'
       - label: 'Afbeeldingen'
         name: 'images'
         widget: 'list'
