@@ -259,10 +259,15 @@ collections: # A list of collections the CMS should be able to edit
                   widget: text,
                   required: false,
                 }
-          - { label: Body, name: body, widget: markdown }
+          - { label: Body, name: body, widget: markdown, required: true }
           - { label: Adres, name: address, widget: text }
           - { label: Telefoonnummer, name: phone, widget: string }
-          - { label: E-mailaddress, name: email, widget: string }
+          - {
+              label: E-mailaddress,
+              name: email,
+              widget: string,
+              required: true,
+            }
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -297,15 +302,16 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: WorkItem }
-      - { label: Titel, name: title, widget: string }
-      - { label: Datum, name: date, widget: date }
-      - { label: Beschrijving, name: body, widget: markdown }
+      - { label: Titel, name: title, widget: string, required: true }
+      - { label: Datum, name: date, widget: date, required: true }
+      - { label: Beschrijving, name: body, widget: markdown, required: true }
       - label: 'Categorie'
         name: 'category'
         widget: 'relation'
         collection: 'workCategories'
         searchFields: ['title']
         valueField: 'title'
+        required: true
       - label: 'Afbeeldingen'
         name: 'images'
         widget: 'list'
@@ -352,7 +358,7 @@ collections: # A list of collections the CMS should be able to edit
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: WorkPage }
-      - { label: Naam, name: title, widget: string }
+      - { label: Naam, name: title, widget: string, required: true }
       - label: 'Meta'
         required: false
         name: 'meta'
