@@ -178,9 +178,29 @@ collections: # A list of collections the CMS should be able to edit
               default: AboutPage,
             }
           - { label: Slug, name: slug, widget: hidden, default: 'blog' }
-          - { label: Title, name: title, widget: string }
-          - { label: Featured Image, name: featuredImage, widget: image }
-          - { label: Subtitle, name: subtitle, widget: markdown }
+          - label: 'Header'
+            required: true
+            name: 'header'
+            widget: 'object'
+            fields:
+              - {
+                  label: Achtergrond afbeelding,
+                  name: backgroundImage,
+                  widget: image,
+                }
+              - { label: Titel, name: title, widget: string }
+              - { label: Subtitel, name: subtitle, widget: string }
+              - { label: Intro tekst, name: introText, widget: text }
+          - label: 'Over mij'
+            name: 'aboutSection'
+            widget: 'object'
+            required: false
+            fields:
+              - { label: 'Title', name: 'title', widget: 'string' }
+              - { label: Tekst, name: tekst, widget: markdown }
+              - { label: Afbeelding, name: image, widget: image }
+              - { label: Quote, name: quote, widget: string }
+
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -217,27 +237,25 @@ collections: # A list of collections the CMS should be able to edit
               default: ComponentsPage,
             }
           - { label: Slug, name: slug, widget: hidden, default: 'components' }
-          - { label: Title, name: title, widget: string }
-          - { label: Featured Images, name: featuredImage, widget: image }
-          - { label: Subtitle, name: subtitle, widget: markdown }
-          - { label: Section 1, name: section1, widget: markdown }
-          - { label: Section 2, name: section2, widget: markdown }
-          - { name: video, label: video, widget: file }
-          - { name: videoPoster, label: videoPoster, widget: image }
-          - { label: videoTitle, name: videoTitle, widget: string }
-          - label: 'accordion'
-            name: 'accordion'
-            widget: 'list'
+          - label: 'Header'
+            required: true
+            name: 'header'
+            widget: 'object'
             fields:
-              - { name: title, label: title, widget: string, default: '' }
-              - { name: description, label: description, widget: string }
-          - label: 'Gallery'
-            name: 'gallery'
-            widget: 'list'
-            fields:
-              - { name: image, label: Image, widget: image }
-              - { name: alt, label: Alt, widget: string }
-              - { name: title, label: Title, widget: string, required: false }
+              - {
+                  label: Achtergrond afbeelding,
+                  name: backgroundImage,
+                  widget: image,
+                }
+              - { label: Titel, name: title, widget: string }
+              - { label: Subtitel, name: subtitle, widget: string }
+              - { label: Intro tekst, name: introText, widget: text }
+          - { label: tekst sectie, name: textSection, widget: markdown }
+          - {
+              label: titel - Werk overzicht,
+              name: workGridTitle,
+              widget: string,
+            }
           - label: 'Meta'
             required: false
             name: 'meta'
@@ -394,30 +412,30 @@ collections: # A list of collections the CMS should be able to edit
           - { label: Noindex, name: noindex, widget: boolean, required: false }
 
   - name: 'settings'
-    label: 'Settings'
+    label: 'Globale instellingen'
     delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: false
     files:
       - file: 'content/settings/global.yml'
-        label: 'Global Settings'
+        label: 'Globale instellingen'
         name: 'global-settings'
         fields:
           - { label: Site Title, name: siteTitle, widget: string }
           - { label: Site Url, name: siteUrl, widget: string, required: false }
           - {
-              label: Site Description,
+              label: Website beschrijving,
               name: siteDescription,
               widget: text,
               required: false,
             }
-          - label: Social Media Card
+          - label: Afbeelding voor het deelen via sosial media
             name: socialMediaCard
             widget: object
             fields:
               - { label: Image, name: image, widget: image, required: false }
           - {
-              label: Google Analytics Tracking Id,
+              label: Google Analytics Tracking Id (ALLEEN VOOR VINCENT),
               name: googleTrackingId,
               widget: string,
               required: false,
