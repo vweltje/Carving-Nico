@@ -18,7 +18,7 @@ locations:
     lng: '153.2432449'
     mapLink: ''
 ---
-# Meer weten of heb je een vraag?
+## Meer weten of heb je een vraag?
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dui faucibus in ornare quam viverra orci sagittis eu volutpat. 
 
