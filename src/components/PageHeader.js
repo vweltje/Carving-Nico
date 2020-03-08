@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 
 import { Link } from 'gatsby'
 import Image from './Image'
-import Content from './Content'
 import './PageHeader.css'
 
 const PageHeader = ({
@@ -16,7 +15,6 @@ const PageHeader = ({
   className = ''
 }) => {
   if (large) className += ' PageHeader-large'
-  console.log(buttons)
   return (
     <div className={`PageHeader relative ${className}`}>
       {backgroundImage && (
@@ -40,7 +38,7 @@ const PageHeader = ({
               <Link
                 key={index}
                 to={button.to}
-                class={`Button ${button.type && `Button-${button.type}`}`}
+                className={`Button ${button.type && `Button-${button.type}`}`}
               >
                 {button.text}
               </Link>
@@ -56,11 +54,13 @@ PageHeader.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   content: PropTypes.string,
-  buttons: PropTypes.shape({
-    text: PropTypes.string,
-    type: PropTypes.oneOf(['primary', 'secondary']),
-    to: PropTypes.string
-  })
+  buttons: PropTypes.arrayOf(
+    PropTypes.shape({
+      text: PropTypes.string,
+      type: PropTypes.oneOf(['primary', 'secondary']),
+      to: PropTypes.string
+    })
+  )
 }
 
 export default PageHeader

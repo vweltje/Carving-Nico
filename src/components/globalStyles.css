@@ -38,7 +38,7 @@ body {
   min-height: 100%;
   position: relative;
   background: white;
-  color: var(--secondary);
+  color: var(--darkGrey);
   font-size: 1.6em;
   font-weight: 400;
   letter-spacing: 0.01em;
@@ -69,6 +69,10 @@ h6 {
   margin-bottom: 0.5em;
 }
 
+h2 {
+  font-size: 3.5rem;
+}
+
 pre {
   background: var(--lightGrey);
   line-height: 1.45;
@@ -97,11 +101,10 @@ pre code:after {
 }
 blockquote {
   margin-left: 0;
-  padding-left: 1em;
-  line-height: 1.1;
-  font-size: 1em;
-  font-style: italic;
-  border-left: 2px solid var(--primary);
+  padding-left: 0;
+  line-height: 3rem;
+  font-size: 2rem;
+  color: var(--primary);
 }
 
 /* Utility Classes */

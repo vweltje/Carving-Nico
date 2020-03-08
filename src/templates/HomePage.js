@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import PageHeader from '../components/PageHeader'
+import ContentBlock from '../components/ContentBlock'
 import Layout from '../components/Layout'
 
 // Export Template for use in CMS preview
@@ -28,6 +29,29 @@ export const HomePageTemplate = ({ header, sections, work }) => (
       button2={header.button2}
       backgroundImage={header.backgroundImage}
     />
+    {sections &&
+      sections.map((section, index) => {
+        if (index === 0) {
+          section.button = {
+            type: 'primary',
+            text: 'Mijn werk',
+            to: '/mijn-werk'
+          }
+        } else if (index === 1) {
+          section.button = {
+            type: 'primary',
+            text: 'Meer over mij',
+            to: '/over-mij'
+          }
+        }
+        return (
+          <ContentBlock
+            key={index}
+            order={index % 2 === 0 ? 'contentFirst' : 'imageFirst'}
+            {...section}
+          />
+        )
+      })}
   </main>
 )
 

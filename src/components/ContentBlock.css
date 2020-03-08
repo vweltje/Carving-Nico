@@ -1,0 +1,48 @@
+.ContentBlock {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5rem 0;
+}
+
+.ContentBlock > :first-child {
+  padding-right: 5rem;
+}
+
+.ContentBlock > :last-child {
+  padding-left: 5rem;
+}
+
+.ContentBlock--Content,
+.ContentBlock--Image {
+  width: 50%;
+  position: relative;
+}
+
+.ContentBlock--Image {
+  height: 100%;
+  min-height: 550px;
+}
+
+@media (max-width: 600px) {
+  .ContentBlock {
+    flex-direction: column;
+    padding: 2.5rem 0;
+  }
+
+  .ContentBlock-imageFirst {
+    flex-direction: column-reverse;
+  }
+
+  .ContentBlock > :first-child,
+  .ContentBlock > :last-child {
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .ContentBlock--Image {
+    min-height: 300px;
+  }
+}
