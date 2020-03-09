@@ -9,46 +9,43 @@ import PostCategoriesNav from '../components/PostCategoriesNav'
 import Layout from '../components/Layout'
 
 /**
- * Filter posts by date. Feature dates will be fitered
+ * Filter work by date. Feature dates will be fitered
  * When used, make sure you run a cronejob each day to show schaduled content. See docs
  *
- * @param {posts} object
+ * @param {work} object
  */
-export const byDate = posts => {
+export const byDate = work => {
   const now = Date.now()
-  return posts.filter(post => Date.parse(post.date) <= now)
+  return work.filter(work => Date.parse(work.date) <= now)
 }
 
 /**
- * filter posts by category.
+ * filter work by category.
  *
- * @param {posts} object
+ * @param {work} object
  * @param {title} string
  * @param {contentType} string
  */
-export const byCategory = (posts, title, contentType) => {
-  const isCategory = contentType === 'postCategories'
-  const byCategory = post =>
-    post.categories &&
-    post.categories.filter(cat => cat.category === title).length
-  return isCategory ? posts.filter(byCategory) : posts
+export const byCategory = (work, title, contentType) => {
+  const isCategory = contentType === 'categorieen'
+  const byCategory = work => work.category && work.category === title
+  return isCategory ? work.filter(byCategory) : work
 }
 
 // Export Template for use in CMS preview
 export const WorkPageTemplate = ({
   title,
-  subtitle,
-  featuredImage,
-  posts = [],
-  postCategories = [],
+  header,
+  work = [],
+  categorieen = [],
   enableSearch = true,
   contentType
 }) => (
   <Location>
     {({ location }) => {
-      let filteredPosts =
-        posts && !!posts.length
-          ? byCategory(byDate(posts), title, contentType)
+      let filteredWork =
+        work && !!work.length
+          ? byCategory(byDate(work), title, contentType)
           : []
 
       let queryObj = location.search.replace('?', '')
@@ -56,31 +53,41 @@ export const WorkPageTemplate = ({
 
       if (enableSearch && queryObj.s) {
         const searchTerm = queryObj.s.toLowerCase()
-        filteredPosts = filteredPosts.filter(post =>
-          post.frontmatter.title.toLowerCase().includes(searchTerm)
+        filteredWork = filteredWork.filter(work =>
+          work.frontmatter.title.toLowerCase().includes(searchTerm)
         )
       }
 
       return (
-        <main className="Blog">
-          <PageHeader
-            title={title}
-            subtitle={subtitle}
-            backgroundImage={featuredImage}
-          />
+        <main className="Work">
+          {header ? (
+            <PageHeader
+              large
+              title={header.title}
+              subtitle={header.subtitle}
+              content={header.introText}
+              backgroundImage={header.backgroundImage}
+            />
+          ) : (
+            <PageHeader
+              large
+              title={title}
+              backgroundImage={header.backgroundImage}
+            />
+          )}
 
-          {!!postCategories.length && (
+          {!!categorieen.length && (
             <section className="section thin">
               <div className="container">
-                <PostCategoriesNav enableSearch categories={postCategories} />
+                <PostCategoriesNav enableSearch categories={categorieen} />
               </div>
             </section>
           )}
 
-          {!!posts.length && (
+          {!!work.length && (
             <section className="section">
               <div className="container">
-                <PostSection posts={filteredPosts} />
+                <PostSection posts={filteredWork} />
               </div>
             </section>
           )}
@@ -91,7 +98,7 @@ export const WorkPageTemplate = ({
 )
 
 // Export Default WorkPage for front-end
-const WorkPage = ({ data: { page, posts, postCategories } }) => (
+const WorkPage = ({ data: { page, work, categorieen } }) => (
   <Layout
     meta={page.frontmatter.meta || false}
     title={page.frontmatter.title || false}
@@ -100,15 +107,15 @@ const WorkPage = ({ data: { page, posts, postCategories } }) => (
       {...page}
       {...page.fields}
       {...page.frontmatter}
-      posts={posts.edges.map(post => ({
-        ...post.node,
-        ...post.node.frontmatter,
-        ...post.node.fields
+      work={work.edges.map(work => ({
+        ...work.node,
+        ...work.node.frontmatter,
+        ...work.node.fields
       }))}
-      postCategories={postCategories.edges.map(post => ({
-        ...post.node,
-        ...post.node.frontmatter,
-        ...post.node.fields
+      categorieen={categorieen.edges.map(work => ({
+        ...work.node,
+        ...work.node.frontmatter,
+        ...work.node.fields
       }))}
     />
   </Layout>
@@ -129,11 +136,19 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        header {
+          title
+          introText
+          backgroundImage
+          subtitle
+        }
+        textSection
+        workGridTitle
       }
     }
 
-    posts: allMarkdownRemark(
-      filter: { fields: { contentType: { eq: "posts" } } }
+    work: allMarkdownRemark(
+      filter: { fields: { contentType: { eq: "work" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
@@ -145,13 +160,17 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date
-            featuredImage
+            category
+            images {
+              shortDescription
+              image
+            }
           }
         }
       }
     }
-    postCategories: allMarkdownRemark(
-      filter: { fields: { contentType: { eq: "postCategories" } } }
+    categorieen: allMarkdownRemark(
+      filter: { fields: { contentType: { eq: "categorieen" } } }
       sort: { order: ASC, fields: [frontmatter___title] }
     ) {
       edges {

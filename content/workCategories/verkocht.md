@@ -1,4 +1,0 @@
----
-template: WorkPage
-title: Verkocht
----

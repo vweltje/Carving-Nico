@@ -308,7 +308,7 @@ collections: # A list of collections the CMS should be able to edit
       - label: 'Categorie'
         name: 'category'
         widget: 'relation'
-        collection: 'workCategories'
+        collection: 'categorieen'
         searchFields: ['title']
         valueField: 'title'
         required: true
@@ -349,16 +349,28 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
 
-  - name: workCategories
+  - name: categorieen
     label: Werk categorieën
     editor:
       preview: false
-    folder: content/workCategories
+    folder: content/categorieen
     slug: '{{slug}}'
     create: true # Allow users to create new documents in this collection
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: WorkPage }
       - { label: Naam, name: title, widget: string, required: true }
+      - label: 'Header'
+        required: true
+        name: 'header'
+        widget: 'object'
+        fields:
+          - {
+              label: Achtergrond afbeelding,
+              name: backgroundImage,
+              widget: image,
+            }
+          - { label: Titel, name: title, widget: string }
+          - { label: Subtitel, name: subtitle, widget: string }
       - label: 'Meta'
         required: false
         name: 'meta'
