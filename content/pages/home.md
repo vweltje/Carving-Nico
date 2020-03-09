@@ -13,7 +13,7 @@ header:
 sections:
   - title: Welkom op mijn website
     tekst: >-
-      > Ik ben eenkunstenaar die gespecialiseerd is in houtsculptuur 
+      > Ik ben eenkunstenaar die gespecialiseerd is in houtsculptuur
 
 
       Ik gebruik verschillende kettingzagen en beitels om dode, omgevallen bomen
@@ -33,8 +33,7 @@ sections:
     image: 'https://ucarecdn.com/da7b3c58-9777-4335-8a74-b853177a1f19/'
 work:
   title: >-
-    Ik maak objecten van hout, doe dit voor als nog als hobby en met veel
-    plezier
+    Mijn laatste projecten
   tekst: >-
     Hieronder zie je een selectie van mijn laatste werk. Geïnteresseerd in een
     item? Vraag de prijs op door op de knop te drukken

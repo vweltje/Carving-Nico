@@ -28,19 +28,29 @@ const ContentBlockImage = ({ src, alt }) => (
 
 const ContentBlock = ({ order, title, tekst, button, image }) => {
   return (
-    <div className={`ContentBlock ${`ContentBlock-${order}`} container`}>
-      {order === 'contentFirst' ? (
-        <>
-          <ContentBlockContent title={title} content={tekst} button={button} />
-          <ContentBlockImage src={image} alt={title} />
-        </>
-      ) : (
-        <>
-          <ContentBlockImage src={image} alt={title} />
-          <ContentBlockContent title={title} content={tekst} button={button} />
-        </>
-      )}
-    </div>
+    <section className="section">
+      <div className={`ContentBlock ${`ContentBlock-${order}`} container`}>
+        {order === 'contentFirst' ? (
+          <>
+            <ContentBlockContent
+              title={title}
+              content={tekst}
+              button={button}
+            />
+            <ContentBlockImage src={image} alt={title} />
+          </>
+        ) : (
+          <>
+            <ContentBlockImage src={image} alt={title} />
+            <ContentBlockContent
+              title={title}
+              content={tekst}
+              button={button}
+            />
+          </>
+        )}
+      </div>
+    </section>
   )
 }
 

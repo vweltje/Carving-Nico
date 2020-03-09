@@ -50,6 +50,13 @@ export const HomePageTemplate = ({ header, sections, work }) => (
           />
         )
       })}
+    <section className="section">
+      <div class="container skinnier">
+        {!!work.title && <h2 className="taCenter">{work.title}</h2>}
+        {!!work.tekst && <p className="taCenter">{work.tekst}</p>}
+      </div>
+      <div class="container"></div>
+    </section>
   </main>
 )
 
