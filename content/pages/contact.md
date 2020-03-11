@@ -1,17 +1,17 @@
 ---
-template: ContactPage
 slug: contact
 header:
   title: Contact
   backgroundImage: 'https://ucarecdn.com/e5ee9aea-c064-4bd7-bc10-47d79927a023/'
-address: 'Eems 159514 EE Gasselternijveen, Nederland'
 phone: 0612345678
 meta:
   description: Neem contact op via deze pagina
   title: Contact Pagina
 featuredImage: 'https://ucarecdn.com/e22a858a-b420-47af-99f6-ed54b6860333/'
+address: ''
 subtitle: This is the contact page subtitle.
 title: Contact Page
+template: ContactPage
 email: example@example.com
 locations:
   - lat: '-27.9654732'
