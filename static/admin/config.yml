@@ -260,14 +260,19 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
           - { label: Body, name: body, widget: markdown, required: true }
-          - { label: Adres, name: address, widget: text }
-          - { label: Telefoonnummer, name: phone, widget: string }
           - {
               label: E-mailaddress,
               name: email,
               widget: string,
               required: true,
             }
+          - {
+              label: Telefoonnummer,
+              name: phone,
+              widget: string,
+              required: false,
+            }
+          - { label: Adres, name: address, widget: text, required: false }
           - label: 'Meta'
             required: false
             name: 'meta'
