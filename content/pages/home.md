@@ -5,7 +5,7 @@ header:
   title: Carving Nico
   subtitle: handgemaakte sculpturen
   introText: >-
-    Met mijn kettingzaag transformeer ik oude bomen naar prachtig houd
+    Met mijn kettingzaag transformeer ik oude bomen naar prachtig houten
     sculpturen
   button1: Bekijk mijn werk
   button2: Lees over de artiest
@@ -32,8 +32,7 @@ sections:
       verder mee kan gaan.
     image: 'https://ucarecdn.com/da7b3c58-9777-4335-8a74-b853177a1f19/'
 work:
-  title: >-
-    Mijn laatste projecten
+  title: Mijn laatste projecten
   tekst: >-
     Hieronder zie je een selectie van mijn laatste werk. Geïnteresseerd in een
     item? Vraag de prijs op door op de knop te drukken
