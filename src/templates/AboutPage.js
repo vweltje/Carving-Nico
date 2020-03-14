@@ -18,6 +18,13 @@ export const AboutPageTemplate = ({ header }) => (
       subtitle={header.subtitle}
       content={header.introText}
       backgroundImage={header.backgroundImage}
+      buttons={[
+        {
+          type: 'primary',
+          to: '/mijn-werk',
+          text: 'Bekijk mijn werk'
+        }
+      ]}
     />
   </main>
 )

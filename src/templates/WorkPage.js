@@ -68,6 +68,13 @@ export const WorkPageTemplate = ({
               subtitle={header.subtitle}
               content={header.introText}
               backgroundImage={header.backgroundImage}
+              buttons={[
+                {
+                  type: 'primary',
+                  to: '/contact?suggestie',
+                  text: 'Doe een suggestie'
+                }
+              ]}
             />
           ) : (
             <PageHeader

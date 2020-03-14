@@ -55,6 +55,7 @@ export const WorkItemTemplate = ({
                 )}
               </Fragment>
             )}
+            <div className="workItem--MetaPrice">€145,-</div>
           </div>
         }
         backgroundImage={header.backgroundImage}
