@@ -4,13 +4,14 @@
 }
 
 .WorkItem--BackButton {
-  color: white;
+  color: var(--primary);
   position: relative;
   display: flex;
   align-items: center;
   font-weight: 600;
   text-decoration: none;
   letter-spacing: 0.1em;
+  margin-bottom: 1rem;
 }
 
 .WorkItem--BackButton svg {
@@ -40,6 +41,7 @@
 }
 
 .workItem--MetaPrice {
+  display: block;
   font-weight: bold;
   margin-top: 2rem;
   margin-left: 0;
@@ -68,10 +70,31 @@
 }
 
 .WorkItem--Pagination--Link {
-  text-transform: uppercase;
-  font-size: 1.2rem;
+  color: var(--primary);
+  position: relative;
+  display: flex;
+  align-items: center;
   font-weight: 600;
   text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.WorkItem--Pagination--Link svg {
+  transition: transform 0.2s ease-out;
+  transform: translateX(0);
+  height: 1.2em;
+}
+
+.WorkItem--Pagination--Link.prev:hover svg,
+.WorkItem--Pagination--Link.prev:focus svg {
+  transform: translateX(-0.25em);
+}
+
+.WorkItem--Pagination--Link.next:hover svg,
+.WorkItem--Pagination--Link.next:focus svg {
+  transform: translateX(0.25em);
 }
 
 .WorkItem--Pagination--Link.next {

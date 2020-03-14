@@ -1,4 +1,5 @@
 import React from 'react'
+import get from 'lodash/get'
 import PropTypes from 'prop-types'
 
 import { Link } from 'gatsby'
@@ -34,19 +35,29 @@ const PageHeader = ({
         </h1>
         {content && <p className="PageHeader--Text">{content}</p>}
         {smallContent && (
-          <p className="PageHeader--TextSmall">{smallContent}</p>
+          <div className="PageHeader--TextSmall">{smallContent}</div>
         )}
         {buttons && (
           <div className="PageHeader--Buttons">
-            {buttons.map((button, index) => (
-              <Link
-                key={index}
-                to={button.to}
-                className={`Button ${button.type && `Button-${button.type}`}`}
-              >
-                {button.text}
-              </Link>
-            ))}
+            {buttons.map((button, index) =>
+              !!get(button, 'action') ? (
+                <button
+                  key={index}
+                  onClick={button.action}
+                  className={`Button ${button.type && `Button-${button.type}`}`}
+                >
+                  {button.text}{' '}
+                </button>
+              ) : (
+                <Link
+                  key={index}
+                  to={button.to}
+                  className={`Button ${button.type && `Button-${button.type}`}`}
+                >
+                  {button.text}
+                </Link>
+              )
+            )}
           </div>
         )}
       </div>

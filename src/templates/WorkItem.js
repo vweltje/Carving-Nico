@@ -1,27 +1,29 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useState } from 'react'
 import _get from 'lodash/get'
-import kebabCase from 'lodash/kebabCase'
 import { Link, graphql } from 'gatsby'
 import { ChevronLeft } from 'react-feather'
+import { ChevronRight } from 'react-feather'
 
 import PageHeader from '../components/PageHeader'
 import Content from '../components/Content'
 import Layout from '../components/Layout'
 import Gallery from '../components/Gallery'
+import Popup from '../components/Popup'
 import './WorkItem.css'
 
 export const WorkItemTemplate = ({
-  slug,
   header,
   title,
   date,
+  price,
   body,
   nextPostURL,
   prevPostURL,
   category,
   gallery
 }) => {
-  console.log()
+  const [popupOpen, setPopupOpen] = useState(false)
+
   return (
     <main>
       <PageHeader
@@ -30,32 +32,36 @@ export const WorkItemTemplate = ({
         buttons={[
           {
             type: 'primary',
-            to: `/contact?project=${kebabCase(title)}`,
+            action: () => {
+              setPopupOpen(true)
+            },
             text: 'Bestellen'
           }
         ]}
         smallContent={
           <div className="WorkItem--Meta">
-            {date && (
-              <time
-                className="WorkItem--Meta--Date"
-                itemProp="dateCreated pubdate datePublished"
-                date={date}
-              >
-                {date}
-              </time>
-            )}
-            {category && (
-              <Fragment>
-                <span>|</span>
-                {category && (
-                  <span key={category} className="WorkItem--Meta--Category">
-                    {category}
-                  </span>
-                )}
-              </Fragment>
-            )}
-            <div className="workItem--MetaPrice">€145,-</div>
+            <p>
+              {date && (
+                <time
+                  className="WorkItem--Meta--Date"
+                  itemProp="dateCreated pubdate datePublished"
+                  date={date}
+                >
+                  {date}
+                </time>
+              )}
+              {category && (
+                <Fragment>
+                  <span>|</span>
+                  {category && (
+                    <span key={category} className="WorkItem--Meta--Category">
+                      {category}
+                    </span>
+                  )}
+                </Fragment>
+              )}
+              {!!price && <span className="workItem--MetaPrice">{price}</span>}
+            </p>
           </div>
         }
         backgroundImage={header.backgroundImage}
@@ -66,8 +72,8 @@ export const WorkItemTemplate = ({
         itemType="http://schema.org/BlogPosting"
       >
         <div className="container skinny">
-          <Link className="WorkItem--BackButton" to="/blog/">
-            <ChevronLeft /> BACK
+          <Link className="WorkItem--BackButton" to="/mijn-werk/">
+            <ChevronLeft /> Terug naar het overzicht
           </Link>
           <div className="WorkItem--Content relative">
             <div className="WorkItem--InnerContent">
@@ -82,7 +88,7 @@ export const WorkItemTemplate = ({
                   className="WorkItem--Pagination--Link prev"
                   to={prevPostURL}
                 >
-                  Previous Post
+                  <ChevronLeft /> Vorige
                 </Link>
               )}
               {nextPostURL && (
@@ -90,12 +96,15 @@ export const WorkItemTemplate = ({
                   className="WorkItem--Pagination--Link next"
                   to={nextPostURL}
                 >
-                  Next Post
+                  Volgende <ChevronRight />
                 </Link>
               )}
             </div>
           </div>
         </div>
+        <Popup open={popupOpen} setOpen={setPopupOpen}>
+          Dit is de content van deze geweldige popup
+        </Popup>
       </article>
     </main>
   )
@@ -140,6 +149,7 @@ export const pageQuery = graphql`
         title
         template
         date(formatString: "MMMM Do, YYYY")
+        price
         category
       }
     }
@@ -164,7 +174,7 @@ export const pageQuery = graphql`
     }
 
     allPosts: allMarkdownRemark(
-      filter: { fields: { contentType: { eq: "posts" } } }
+      filter: { fields: { contentType: { eq: "work" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {

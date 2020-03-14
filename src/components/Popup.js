@@ -1,48 +1,24 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import { X } from 'react-feather'
 
 import './Popup.css'
 
-class Popup extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { showPopup: false }
-  }
-
-  togglePopup() {
-    this.setState({
-      showPopup: !this.state.showPopup
-    })
-  }
-
-  render() {
-    const { children } = this.props
-    return (
-      <Fragment>
-        <div className="taCenter">
-          <h3> Simple Popup Example</h3>
-          <div className="Button" onClick={this.togglePopup.bind(this)}>
-            Click To Launch Popup
+const Popup = ({ open, setOpen, children }) => {
+  return (
+    <>
+      {open ? (
+        <div className="Popup-Overlay">
+          <div
+            className="Popup-Background"
+            onClick={() => setOpen(false)}
+          ></div>
+          <div className="Popup-Inner">
+            <X className="Popup-Close" onClick={() => setOpen(false)} />
+            {children}
           </div>
         </div>
-
-        {this.state.showPopup ? (
-          <div className="Popup-Overlay">
-            <div
-              className="Popup-Background"
-              onClick={this.togglePopup.bind(this)}
-            ></div>
-            <div className="Popup-Inner">
-              <X
-                className="Popup-Close"
-                onClick={this.togglePopup.bind(this)}
-              />
-              {children}
-            </div>
-          </div>
-        ) : null}
-      </Fragment>
-    )
-  }
+      ) : null}
+    </>
+  )
 }
 export default Popup

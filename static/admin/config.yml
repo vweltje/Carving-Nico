@@ -309,6 +309,7 @@ collections: # A list of collections the CMS should be able to edit
       - { label: Template, name: template, widget: hidden, default: WorkItem }
       - { label: Titel, name: title, widget: string, required: true }
       - { label: Datum, name: date, widget: date, required: true }
+      - { label: Prijs, name: price, widget: text, required: false }
       - { label: Beschrijving, name: body, widget: markdown, required: true }
       - label: 'Categorie'
         name: 'category'
