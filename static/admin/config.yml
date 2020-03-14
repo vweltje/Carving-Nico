@@ -317,17 +317,13 @@ collections: # A list of collections the CMS should be able to edit
         searchFields: ['title']
         valueField: 'title'
         required: true
-      - label: 'Afbeeldingen'
-        name: 'images'
+      - label: 'Galerij'
+        name: 'gallery'
         widget: 'list'
-        required: false
         fields:
-          - {
-              label: Korte beschrijving,
-              name: shortDescription,
-              widget: 'string',
-            }
-          - { label: Afbeelding, name: image, widget: image }
+          - { name: image, label: Afbeelding, widget: image }
+          - { name: alt, label: Alternatieve tekst, widget: string }
+          - { name: title, label: Titel, widget: string, required: false }
 
       - label: 'Meta'
         required: false

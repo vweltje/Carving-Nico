@@ -5,6 +5,7 @@ import { ChevronLeft } from 'react-feather'
 
 import Content from '../components/Content'
 import Layout from '../components/Layout'
+import Gallery from '../components/Gallery'
 import './WorkItem.css'
 
 export const WorkItemTemplate = ({
@@ -13,76 +14,80 @@ export const WorkItemTemplate = ({
   body,
   nextPostURL,
   prevPostURL,
-  categories = []
-}) => (
-  <main>
-    <article
-      className="WorkItem section light"
-      itemScope
-      itemType="http://schema.org/BlogPosting"
-    >
-      <div className="container skinny">
-        <Link className="WorkItem--BackButton" to="/blog/">
-          <ChevronLeft /> BACK
-        </Link>
-        <div className="WorkItem--Content relative">
-          <div className="WorkItem--Meta">
-            {date && (
-              <time
-                className="WorkItem--Meta--Date"
-                itemProp="dateCreated pubdate datePublished"
-                date={date}
-              >
-                {date}
-              </time>
-            )}
-            {categories && (
-              <Fragment>
-                <span>|</span>
-                {categories.map((cat, index) => (
-                  <span key={cat.category} className="WorkItem--Meta--Category">
-                    {cat.category}
-                    {/* Add a comma on all but last category */}
-                    {index !== categories.length - 1 ? ',' : ''}
-                  </span>
-                ))}
-              </Fragment>
-            )}
-          </div>
+  category,
+  images
+}) => {
+  console.log()
+  return (
+    <main>
+      <article
+        className="WorkItem section light"
+        itemScope
+        itemType="http://schema.org/BlogPosting"
+      >
+        <div className="container skinny">
+          <Link className="WorkItem--BackButton" to="/blog/">
+            <ChevronLeft /> BACK
+          </Link>
+          <div className="WorkItem--Content relative">
+            <div className="WorkItem--Meta">
+              {date && (
+                <time
+                  className="WorkItem--Meta--Date"
+                  itemProp="dateCreated pubdate datePublished"
+                  date={date}
+                >
+                  {date}
+                </time>
+              )}
+              {category && (
+                <Fragment>
+                  <span>|</span>
+                  {category && (
+                    <span key={category} className="WorkItem--Meta--Category">
+                      {category}
+                    </span>
+                  )}
+                </Fragment>
+              )}
+            </div>
 
-          {title && (
-            <h1 className="WorkItem--Title" itemProp="title">
-              {title}
-            </h1>
-          )}
-
-          <div className="WorkItem--InnerContent">
-            <Content source={body} />
-          </div>
-
-          <div className="WorkItem--Pagination">
-            {prevPostURL && (
-              <Link
-                className="WorkItem--Pagination--Link prev"
-                to={prevPostURL}
-              >
-                Previous Post
-              </Link>
+            {title && (
+              <h1 className="WorkItem--Title" itemProp="title">
+                {title}
+              </h1>
             )}
-            {nextPostURL && (
-              <Link
-                className="WorkItem--Pagination--Link next"
-                to={nextPostURL}
-              >
-                Next Post
-              </Link>
-            )}
+
+            <div className="WorkItem--InnerContent">
+              <Content source={body} />
+            </div>
+
+            <Gallery images={gallery} />
+
+            <div className="WorkItem--Pagination">
+              {prevPostURL && (
+                <Link
+                  className="WorkItem--Pagination--Link prev"
+                  to={prevPostURL}
+                >
+                  Previous Post
+                </Link>
+              )}
+              {nextPostURL && (
+                <Link
+                  className="WorkItem--Pagination--Link next"
+                  to={nextPostURL}
+                >
+                  Next Post
+                </Link>
+              )}
+            </div>
           </div>
         </div>
-      </div>
-    </article>
-  </main>
-)
+      </article>
+    </main>
+  )
+}
 
 // Export Default WorkItem for front-end
 const WorkItem = ({ data: { post, allPosts } }) => {
@@ -113,12 +118,18 @@ export const pageQuery = graphql`
   query WorkItem($id: String!) {
     post: markdownRemark(id: { eq: $id }) {
       ...Meta
+      ...Gallery
       html
       id
       frontmatter {
         title
         template
         date(formatString: "MMMM Do, YYYY")
+        category
+        images {
+          shortDescription
+          image
+        }
       }
     }
 
