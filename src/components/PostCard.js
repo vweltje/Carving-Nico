@@ -5,28 +5,28 @@ import Image from './Image'
 import './PostCard.css'
 
 const PostCard = ({
-  featuredImage,
   title,
-  excerpt,
   slug,
-  categories = [],
+  category,
   className = '',
-  ...props
-}) => (
-  <Link to={slug} className={`PostCard ${className}`}>
-    {featuredImage && (
-      <div className="PostCard--Image relative">
-        <Image background src={featuredImage} alt={title} />
+  images,
+  excerpt
+}) => {
+  console.log(images)
+  return (
+    <Link to={slug} className={`PostCard ${className}`}>
+      {images && (
+        <div className="PostCard--Image relative">
+          <Image background src={images[0].image} alt={images[0].description} />
+        </div>
+      )}
+      <div className="PostCard--Content">
+        {title && <h3 className="PostCard--Title">{title}</h3>}
+        <div className="PostCard--Category">{category}</div>
+        {excerpt && <div className="PostCard--Excerpt">{excerpt}</div>}
       </div>
-    )}
-    <div className="PostCard--Content">
-      {title && <h3 className="PostCard--Title">{title}</h3>}
-      <div className="PostCard--Category">
-        {categories && categories.map(cat => cat.category).join(', ')}
-      </div>
-      {excerpt && <div className="PostCard--Excerpt">{excerpt}</div>}
-    </div>
-  </Link>
-)
+    </Link>
+  )
+}
 
 export default PostCard
