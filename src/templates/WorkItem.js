@@ -15,7 +15,7 @@ export const WorkItemTemplate = ({
   nextPostURL,
   prevPostURL,
   category,
-  images
+  gallery
 }) => {
   console.log()
   return (
@@ -126,10 +126,6 @@ export const pageQuery = graphql`
         template
         date(formatString: "MMMM Do, YYYY")
         category
-        images {
-          shortDescription
-          image
-        }
       }
     }
 

@@ -98,28 +98,30 @@ export const WorkPageTemplate = ({
 )
 
 // Export Default WorkPage for front-end
-const WorkPage = ({ data: { page, work, categorieen } }) => (
-  <Layout
-    meta={page.frontmatter.meta || false}
-    title={page.frontmatter.title || false}
-  >
-    <WorkPageTemplate
-      {...page}
-      {...page.fields}
-      {...page.frontmatter}
-      work={work.edges.map(work => ({
-        ...work.node,
-        ...work.node.frontmatter,
-        ...work.node.fields
-      }))}
-      categorieen={categorieen.edges.map(work => ({
-        ...work.node,
-        ...work.node.frontmatter,
-        ...work.node.fields
-      }))}
-    />
-  </Layout>
-)
+const WorkPage = ({ data: { page, work, categorieen } }) => {
+  return (
+    <Layout
+      meta={page.frontmatter.meta || false}
+      title={page.frontmatter.title || false}
+    >
+      <WorkPageTemplate
+        {...page}
+        {...page.fields}
+        {...page.frontmatter}
+        work={work.edges.map(work => ({
+          ...work.node,
+          ...work.node.frontmatter,
+          ...work.node.fields
+        }))}
+        categorieen={categorieen.edges.map(work => ({
+          ...work.node,
+          ...work.node.frontmatter,
+          ...work.node.fields
+        }))}
+      />
+    </Layout>
+  )
+}
 
 export default WorkPage
 
@@ -153,6 +155,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          ...Gallery
           excerpt
           fields {
             slug
@@ -161,10 +164,6 @@ export const pageQuery = graphql`
             title
             date
             category
-            images {
-              shortDescription
-              image
-            }
           }
         }
       }

@@ -9,15 +9,14 @@ const PostCard = ({
   slug,
   category,
   className = '',
-  images,
+  gallery,
   excerpt
 }) => {
-  console.log(images)
   return (
     <Link to={slug} className={`PostCard ${className}`}>
-      {images && (
+      {gallery && (
         <div className="PostCard--Image relative">
-          <Image background src={images[0].image} alt={images[0].description} />
+          <Image background src={gallery[0].image} alt={gallery[0].alt} />
         </div>
       )}
       <div className="PostCard--Content">
