@@ -4,9 +4,10 @@ import { graphql } from 'gatsby'
 import PageHeader from '../components/PageHeader'
 import ContentBlock from '../components/ContentBlock'
 import Layout from '../components/Layout'
+import PostSection from '../components/PostSection'
 
 // Export Template for use in CMS preview
-export const HomePageTemplate = ({ header, sections, work }) => (
+export const HomePageTemplate = ({ header, sections, work, workItems }) => (
   <main className="Home">
     <PageHeader
       large
@@ -55,17 +56,31 @@ export const HomePageTemplate = ({ header, sections, work }) => (
         {!!work.title && <h2 className="taCenter">{work.title}</h2>}
         {!!work.tekst && <p className="taCenter">{work.tekst}</p>}
       </div>
-      <div class="container"></div>
+      <div class="container">
+        <PostSection posts={workItems} />
+      </div>
+      )}
     </section>
   </main>
 )
 
 // Export Default HomePage for front-end
-const HomePage = ({ data: { page } }) => (
-  <Layout meta={page.frontmatter.meta || false}>
-    <HomePageTemplate {...page} {...page.frontmatter} body={page.html} />
-  </Layout>
-)
+const HomePage = ({ data: { page, workItems } }) => {
+  return (
+    <Layout meta={page.frontmatter.meta || false}>
+      <HomePageTemplate
+        {...page}
+        {...page.frontmatter}
+        body={page.html}
+        workItems={workItems.nodes.map(work => ({
+          ...work,
+          ...work.frontmatter,
+          ...work.fields
+        }))}
+      />
+    </Layout>
+  )
+}
 
 export default HomePage
 
@@ -95,6 +110,27 @@ export const pageQuery = graphql`
         work {
           title
           tekst
+        }
+      }
+    }
+    workItems: allMarkdownRemark(
+      filter: { fields: { contentType: { eq: "work" } } }
+      limit: 3
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
+      nodes {
+        excerpt
+        frontmatter {
+          gallery {
+            image
+            title
+            alt
+          }
+          title
+          category
+        }
+        fields {
+          slug
         }
       }
     }
