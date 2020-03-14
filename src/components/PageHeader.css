@@ -37,6 +37,14 @@
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
 }
 
+.PageHeader--TextSmall {
+  font-size: 1.6rem;
+  padding: 2rem 0;
+  max-width: 40rem;
+  width: 100%;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+}
+
 .PageHeader--Buttons {
   display: flex;
   flex-direction: row;

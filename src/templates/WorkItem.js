@@ -3,12 +3,14 @@ import _get from 'lodash/get'
 import { Link, graphql } from 'gatsby'
 import { ChevronLeft } from 'react-feather'
 
+import PageHeader from '../components/PageHeader'
 import Content from '../components/Content'
 import Layout from '../components/Layout'
 import Gallery from '../components/Gallery'
 import './WorkItem.css'
 
 export const WorkItemTemplate = ({
+  header,
   title,
   date,
   body,
@@ -20,6 +22,34 @@ export const WorkItemTemplate = ({
   console.log()
   return (
     <main>
+      <PageHeader
+        large
+        title={title}
+        smallContent={
+          <div className="WorkItem--Meta">
+            {date && (
+              <time
+                className="WorkItem--Meta--Date"
+                itemProp="dateCreated pubdate datePublished"
+                date={date}
+              >
+                {date}
+              </time>
+            )}
+            {category && (
+              <Fragment>
+                <span>|</span>
+                {category && (
+                  <span key={category} className="WorkItem--Meta--Category">
+                    {category}
+                  </span>
+                )}
+              </Fragment>
+            )}
+          </div>
+        }
+        backgroundImage={header.backgroundImage}
+      />
       <article
         className="WorkItem section light"
         itemScope
@@ -30,34 +60,6 @@ export const WorkItemTemplate = ({
             <ChevronLeft /> BACK
           </Link>
           <div className="WorkItem--Content relative">
-            <div className="WorkItem--Meta">
-              {date && (
-                <time
-                  className="WorkItem--Meta--Date"
-                  itemProp="dateCreated pubdate datePublished"
-                  date={date}
-                >
-                  {date}
-                </time>
-              )}
-              {category && (
-                <Fragment>
-                  <span>|</span>
-                  {category && (
-                    <span key={category} className="WorkItem--Meta--Category">
-                      {category}
-                    </span>
-                  )}
-                </Fragment>
-              )}
-            </div>
-
-            {title && (
-              <h1 className="WorkItem--Title" itemProp="title">
-                {title}
-              </h1>
-            )}
-
             <div className="WorkItem--InnerContent">
               <Content source={body} />
             </div>
@@ -90,8 +92,9 @@ export const WorkItemTemplate = ({
 }
 
 // Export Default WorkItem for front-end
-const WorkItem = ({ data: { post, allPosts } }) => {
+const WorkItem = ({ data: { post, allPosts, workPage } }) => {
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
+  console.log(workPage)
   return (
     <Layout
       meta={post.frontmatter.meta || false}
@@ -100,6 +103,7 @@ const WorkItem = ({ data: { post, allPosts } }) => {
       <WorkItemTemplate
         {...post}
         {...post.frontmatter}
+        header={workPage.nodes[0].frontmatter.header}
         body={post.html}
         nextPostURL={_get(thisEdge, 'next.fields.slug')}
         prevPostURL={_get(thisEdge, 'previous.fields.slug')}
@@ -126,6 +130,25 @@ export const pageQuery = graphql`
         template
         date(formatString: "MMMM Do, YYYY")
         category
+      }
+    }
+
+    workPage: allMarkdownRemark(
+      filter: { fields: { slug: { eq: "/mijn-werk/" } } }
+    ) {
+      nodes {
+        id
+        fields {
+          slug
+        }
+        frontmatter {
+          header {
+            backgroundImage
+            title
+            introText
+            subtitle
+          }
+        }
       }
     }
 

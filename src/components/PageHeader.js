@@ -9,6 +9,7 @@ const PageHeader = ({
   title,
   subtitle,
   content,
+  smallContent,
   buttons,
   backgroundImage,
   large,
@@ -32,6 +33,9 @@ const PageHeader = ({
           {subtitle && <span className="PageHeader--Subtitle">{subtitle}</span>}
         </h1>
         {content && <p className="PageHeader--Text">{content}</p>}
+        {smallContent && (
+          <p className="PageHeader--TextSmall">{smallContent}</p>
+        )}
         {buttons && (
           <div className="PageHeader--Buttons">
             {buttons.map((button, index) => (
@@ -54,6 +58,7 @@ PageHeader.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   content: PropTypes.string,
+  smallContent: PropTypes.string,
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
