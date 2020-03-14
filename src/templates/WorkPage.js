@@ -72,7 +72,7 @@ export const WorkPageTemplate = ({
                 {
                   type: 'primary',
                   to: '/contact?suggestie',
-                  text: 'Doe een suggestie'
+                  text: header.button1
                 }
               ]}
             />
@@ -151,6 +151,7 @@ export const pageQuery = graphql`
           introText
           backgroundImage
           subtitle
+          button1
         }
         textSection
         workGridTitle

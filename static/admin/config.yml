@@ -57,6 +57,7 @@ collections: # A list of collections the CMS should be able to edit
               - { label: 'Titel', name: 'title', widget: 'string' }
               - { label: Tekst, name: tekst, widget: markdown }
               - { label: Afbeelding, name: image, widget: image }
+              - { label: Knop 1, name: button1, widget: string }
 
           - label: 'Werk'
             required: true
@@ -125,6 +126,7 @@ collections: # A list of collections the CMS should be able to edit
                   widget: text,
                   required: false,
                 }
+              - { label: Knop 1, name: button1, widget: string }
           - { label: Tekst sectie, name: textSection, widget: markdown }
           - {
               label: titel - Werk overzicht,

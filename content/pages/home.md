@@ -36,6 +36,7 @@ work:
   tekst: >-
     Hieronder zie je een selectie van mijn laatste werk. Geïnteresseerd in een
     item? Vraag de prijs op door op de knop te drukken
+  button1: Ontdek meer
 meta:
   description: Mijn naam is Nico Kussendrager en ik maak objecten van hout.
   title: Carving Nico | Home

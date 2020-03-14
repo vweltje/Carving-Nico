@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import PageHeader from '../components/PageHeader'
 import ContentBlock from '../components/ContentBlock'
@@ -58,6 +58,13 @@ export const HomePageTemplate = ({ header, sections, work, workItems }) => (
       </div>
       <div class="container">
         <PostSection posts={workItems} />
+        <div class="section thin container taCenter">
+          {work.button1 && (
+            <Link className="Button Button-primary" to="/mijn-werk">
+              {work.button1}
+            </Link>
+          )}
+        </div>
       </div>
       )}
     </section>
@@ -110,6 +117,7 @@ export const pageQuery = graphql`
         work {
           title
           tekst
+          button1
         }
       }
     }
