@@ -158,7 +158,7 @@ export const pageQuery = graphql`
     }
 
     work: allMarkdownRemark(
-      filter: { fields: { contentType: { eq: "work" } } }
+      filter: { fields: { contentType: { eq: "werk" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
