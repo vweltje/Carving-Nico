@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import _get from 'lodash/get'
+import kebabCase from 'lodash/kebabCase'
 import { Link, graphql } from 'gatsby'
 import { ChevronLeft } from 'react-feather'
 
@@ -10,6 +11,7 @@ import Gallery from '../components/Gallery'
 import './WorkItem.css'
 
 export const WorkItemTemplate = ({
+  slug,
   header,
   title,
   date,
@@ -25,6 +27,13 @@ export const WorkItemTemplate = ({
       <PageHeader
         large
         title={title}
+        buttons={[
+          {
+            type: 'primary',
+            to: `/contact?project=${kebabCase(title)}`,
+            text: 'Bestellen'
+          }
+        ]}
         smallContent={
           <div className="WorkItem--Meta">
             {date && (
@@ -126,6 +135,7 @@ export const pageQuery = graphql`
       html
       id
       frontmatter {
+        slug
         title
         template
         date(formatString: "MMMM Do, YYYY")

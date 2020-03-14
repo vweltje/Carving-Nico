@@ -7,6 +7,7 @@ import PageHeader from '../components/PageHeader'
 import PostSection from '../components/PostSection'
 import PostCategoriesNav from '../components/PostCategoriesNav'
 import Layout from '../components/Layout'
+import './WorkPage.css'
 
 /**
  * Filter work by date. Feature dates will be fitered
@@ -77,7 +78,7 @@ export const WorkPageTemplate = ({
           )}
 
           {!!categorieen.length && (
-            <section className="section thin">
+            <section className="section thin PostCategoriesNav--Wrapper">
               <div className="container">
                 <PostCategoriesNav enableSearch categories={categorieen} />
               </div>
