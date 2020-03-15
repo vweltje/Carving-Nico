@@ -28,7 +28,8 @@
 
 .Popup-Inner {
   background: white;
-  width: 80%;
+  width: 100%;
+  max-width: 55rem;
   max-height: 80%;
   position: relative;
   z-index: 99999999;
@@ -40,4 +41,5 @@
   position: absolute;
   top: 2rem;
   right: 2rem;
+  cursor: pointer;
 }
