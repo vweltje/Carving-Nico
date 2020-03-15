@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import _get from 'lodash/get'
+import get from 'lodash/get'
 import { Link, graphql } from 'gatsby'
 import { ChevronLeft } from 'react-feather'
 import { ChevronRight } from 'react-feather'
@@ -9,9 +9,11 @@ import Content from '../components/Content'
 import Layout from '../components/Layout'
 import Gallery from '../components/Gallery'
 import Popup from '../components/Popup'
+import WorkForm from '../components/WorkForm'
 import './WorkItem.css'
 
 export const WorkItemTemplate = ({
+  slug,
   header,
   title,
   date,
@@ -20,10 +22,11 @@ export const WorkItemTemplate = ({
   nextPostURL,
   prevPostURL,
   category,
-  gallery
+  gallery,
+  contact
 }) => {
-  const [popupOpen, setPopupOpen] = useState(false)
-
+  const [popupOpen, setPopupOpen] = useState(true)
+  console.log(slug)
   return (
     <main>
       <PageHeader
@@ -103,7 +106,13 @@ export const WorkItemTemplate = ({
           </div>
         </div>
         <Popup open={popupOpen} setOpen={setPopupOpen}>
-          Dit is de content van deze geweldige popup
+          <h3>Bestellen</h3>
+          Ben je geintresseerd in <Link to={slug}>{title}</Link> en wil je een
+          bestelling plaatsen? Laat dan hieronder jouw gegevens achter en ik
+          neem zo snel mogelijk contact met je op. <br />
+          Direct contact? Bel mij op:{' '}
+          <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+          <WorkForm />
         </Popup>
       </article>
     </main>
@@ -111,9 +120,9 @@ export const WorkItemTemplate = ({
 }
 
 // Export Default WorkItem for front-end
-const WorkItem = ({ data: { post, allPosts, workPage } }) => {
+const WorkItem = ({ data: { post, allPosts, workPage, contact } }) => {
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
-  console.log(workPage)
+  console.log(post)
   return (
     <Layout
       meta={post.frontmatter.meta || false}
@@ -122,10 +131,12 @@ const WorkItem = ({ data: { post, allPosts, workPage } }) => {
       <WorkItemTemplate
         {...post}
         {...post.frontmatter}
+        {...post.fields}
         header={workPage.nodes[0].frontmatter.header}
         body={post.html}
-        nextPostURL={_get(thisEdge, 'next.fields.slug')}
-        prevPostURL={_get(thisEdge, 'previous.fields.slug')}
+        nextPostURL={get(thisEdge, 'next.fields.slug')}
+        prevPostURL={get(thisEdge, 'previous.fields.slug')}
+        contact={get(contact, 'nodes[0].frontmatter')}
       />
     </Layout>
   )
@@ -144,6 +155,9 @@ export const pageQuery = graphql`
       ...Gallery
       html
       id
+      fields {
+        slug
+      }
       frontmatter {
         slug
         title
@@ -196,6 +210,16 @@ export const pageQuery = graphql`
           frontmatter {
             title
           }
+        }
+      }
+    }
+
+    contact: allMarkdownRemark(
+      filter: { fields: { slug: { eq: "/contact/" } } }
+    ) {
+      nodes {
+        frontmatter {
+          phone
         }
       }
     }

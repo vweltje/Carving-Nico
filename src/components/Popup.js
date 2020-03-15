@@ -14,7 +14,7 @@ const Popup = ({ open, setOpen, children }) => {
           ></div>
           <div className="Popup-Inner">
             <X className="Popup-Close" onClick={() => setOpen(false)} />
-            {children}
+            <div className="Popup-Content">{children}</div>
           </div>
         </div>
       ) : null}
