@@ -60,7 +60,17 @@
   .PageHeader {
     padding: 7rem 0;
   }
+
   .PageHeader-large {
     padding: 12.5rem 0;
+  }
+
+  .PageHeader--Buttons {
+    flex-direction: column;
+  }
+
+  .PageHeader--Buttons .Button:nth-child(even) {
+    margin-left: 0;
+    margin-top: 2rem;
   }
 }

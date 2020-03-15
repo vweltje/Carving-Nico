@@ -44,7 +44,7 @@ export class Navigation extends Component {
           to={to}
           className={`NavLink ${
             to === this.state.currentPath ? 'active' : ''
-          } ${className}`}
+          } ${className || ''}`}
           onClick={this.handleLinkClick}
           {...props}
         >

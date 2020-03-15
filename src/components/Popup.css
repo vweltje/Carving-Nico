@@ -13,6 +13,7 @@
   justify-content: center;
   flex-direction: column;
 }
+
 .Popup-Background {
   position: absolute;
   top: 0;
@@ -28,13 +29,19 @@
 
 .Popup-Inner {
   background: white;
-  width: 100%;
+  width: calc(100% - 40px);
   max-width: 55rem;
   max-height: 80%;
   position: relative;
   z-index: 99999999;
   padding: 8rem;
   overflow-y: auto;
+}
+
+@media (max-width: 600px) {
+  .Popup-Inner {
+    padding: 4rem;
+  }
 }
 
 .Popup-Close {

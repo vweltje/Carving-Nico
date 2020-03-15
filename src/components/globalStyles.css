@@ -33,6 +33,12 @@ html {
   background: var(--lightGrey);
 }
 
+@media (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body {
   font-family: var(--font-system);
   min-height: 100%;
@@ -208,6 +214,7 @@ blockquote {
   letter-spacing: 0.05em;
   font-size: 1.4rem;
   display: inline-block;
+  text-align: center;
   padding: 1.25rem 3rem;
   border: none;
   transition: all 0.2s ease;
@@ -237,4 +244,10 @@ blockquote {
 .Button-secondary {
   background: var(--secondary);
   color: white;
+}
+
+@media (max-width: 600px) {
+  .Button {
+    width: 100%;
+  }
 }
