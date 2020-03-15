@@ -194,7 +194,6 @@ collections: # A list of collections the CMS should be able to edit
               - { label: 'Titel', name: 'title', widget: 'string' }
               - { label: Tekst, name: tekst, widget: markdown }
               - { label: Afbeelding, name: image, widget: image }
-              - { label: Quote, name: quote, widget: string }
 
           - label: 'Meta'
             required: false

@@ -2,15 +2,11 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import PageHeader from '../components/PageHeader'
-import Content from '../components/Content.js'
 import Layout from '../components/Layout.js'
-import Accordion from '../components/Accordion'
-import BackgroundVideo from '../components/BackgroundVideo'
-import Gallery from '../components/Gallery'
-import Popup from '../components/Popup'
+import ContentBlock from '../components/ContentBlock'
 
 // Export Template for use in CMS preview
-export const AboutPageTemplate = ({ header }) => (
+export const AboutPageTemplate = ({ header, aboutSection }) => (
   <main>
     <PageHeader
       large
@@ -26,6 +22,7 @@ export const AboutPageTemplate = ({ header }) => (
         }
       ]}
     />
+    <ContentBlock order="contentFirst" {...aboutSection} />
   </main>
 )
 
