@@ -34,7 +34,7 @@
   position: relative;
   z-index: 99999999;
   padding: 8rem;
-  overflow: hidden;
+  overflow-y: auto;
 }
 
 .Popup-Close {

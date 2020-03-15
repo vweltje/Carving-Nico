@@ -8,12 +8,13 @@ import './Form.css'
 
 class Form extends React.Component {
   static defaultProps = {
-    name: 'Simple Form Ajax',
+    name: 'bestelling',
     subject: '', // optional subject of the notification email
     action: '',
-    successMessage: 'Thanks for your enquiry, we will get back to you soon',
+    successMessage:
+      'Bedankt voor je bestelling. Ik neem contact met je op om de bestelling af te ropnden.',
     errorMessage:
-      'There is a problem, your message has not been sent, please try contacting us via email'
+      'Oeps, er is wat mis gegaan, jouw bericht kon niet verzonden worden. Probeer het op een later opnieuw. Mijn excusses voor het ongemak!'
   }
 
   state = {
@@ -55,7 +56,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const { name, subject, action } = this.props
+    const { name, subject, action, workItem } = this.props
 
     return (
       <Fragment>
@@ -105,16 +106,6 @@ class Form extends React.Component {
             />
             <span>E-mailadres</span>
           </label>
-          <label className="Form--Label">
-            <textarea
-              className="Form--Input Form--Textarea Form--InputText"
-              placeholder="Bericht"
-              name="bericht"
-              rows="10"
-              required
-            />
-            <span>Bericht</span>
-          </label>
           <label className="Form--Label Form-Checkbox">
             <input
               className="Form--Input Form--Textarea Form--CheckboxInput"
@@ -129,7 +120,7 @@ class Form extends React.Component {
             class="g-recaptcha"
             data-sitekey="6LfIq98UAAAAALcfJLl1wstv3pJlp5FweJWS34Fs"
           ></div>
-          {!!subject && <input type="hidden" name="subject" value={subject} />}
+          <input type="hidden" name="project" value={workItem} />
           <input type="hidden" name="form-name" value={name} />
           <input
             className="Button Form--SubmitButton"
