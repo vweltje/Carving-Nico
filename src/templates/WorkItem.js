@@ -38,7 +38,7 @@ export const WorkItemTemplate = ({
             action: () => {
               setPopupOpen(true)
             },
-            text: 'Bestellennnn'
+            text: 'Bestellen'
           }
         ]}
         smallContent={
@@ -130,9 +130,7 @@ export const WorkItemTemplate = ({
 }
 
 // Export Default WorkItem for front-end
-const WorkItem = ({
-  data: { post, allPosts, workPage, contact, popup = false }
-}) => {
+const WorkItem = ({ data: { post, allPosts, workPage, contact, popup } }) => {
   console.log(popup)
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
   return (
@@ -233,6 +231,19 @@ export const pageQuery = graphql`
       nodes {
         frontmatter {
           phone
+        }
+      }
+    }
+
+    popup: allMarkdownRemark(
+      filter: {
+        fields: { contentType: { eq: "popups" }, slug: {} }
+        fileAbsolutePath: { regex: "/(popups)/(bestellen)\\\\.md$/" }
+      }
+    ) {
+      edges {
+        node {
+          html
         }
       }
     }

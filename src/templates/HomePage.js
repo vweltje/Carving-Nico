@@ -52,13 +52,13 @@ export const HomePageTemplate = ({ header, sections, work, workItems }) => (
         )
       })}
     <section className="section">
-      <div class="container skinnier">
+      <div className="container skinnier">
         {!!work.title && <h2 className="taCenter">{work.title}</h2>}
         {!!work.tekst && <p className="taCenter">{work.tekst}</p>}
       </div>
-      <div class="container">
+      <div className="container">
         <PostSection posts={workItems} />
-        <div class="section thin container taCenter">
+        <div className="section thin container taCenter">
           {work.button1 && (
             <Link className="Button Button-primary" to="/mijn-werk">
               {work.button1}

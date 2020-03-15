@@ -127,12 +127,6 @@ collections: # A list of collections the CMS should be able to edit
                   required: false,
                 }
               - { label: Knop 1, name: button1, widget: string }
-          - { label: Tekst sectie, name: textSection, widget: markdown }
-          - {
-              label: titel - Werk overzicht,
-              name: workGridTitle,
-              widget: string,
-            }
           - label: 'Meta'
             required: false
             name: 'meta'

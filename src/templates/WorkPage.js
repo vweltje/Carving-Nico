@@ -73,7 +73,7 @@ export const WorkPageTemplate = ({
                   ? [
                       {
                         type: 'primary',
-                        to: '/mijn-werk',
+                        to: '/over-mij',
                         text: header.button1
                       }
                     ]

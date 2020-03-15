@@ -69,7 +69,7 @@ PageHeader.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   content: PropTypes.string,
-  smallContent: PropTypes.string,
+  smallContent: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   buttons: PropTypes.arrayOf(
     PropTypes.shape({
       text: PropTypes.string,
