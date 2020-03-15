@@ -1,6 +1,7 @@
 ---
 template: workItem
 slug: bestellen
+title: Bestellen
 ---
 
 ### Bestellen

@@ -68,13 +68,17 @@ export const WorkPageTemplate = ({
               subtitle={header.subtitle}
               content={header.introText}
               backgroundImage={header.backgroundImage}
-              buttons={[
-                {
-                  type: 'primary',
-                  to: '/mijn-werk',
-                  text: header.button1
-                }
-              ]}
+              buttons={
+                header.button1
+                  ? [
+                      {
+                        type: 'primary',
+                        to: '/mijn-werk',
+                        text: header.button1
+                      }
+                    ]
+                  : []
+              }
             />
           ) : (
             <PageHeader

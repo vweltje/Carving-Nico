@@ -404,7 +404,7 @@ collections: # A list of collections the CMS should be able to edit
     label: Pop-ups
     editor:
       preview: true
-    folder: content/infoPages
+    folder: content/popup
     slug: '{{slug}}'
     create: false # Dissallow users to create new documents in this collection
     fields:

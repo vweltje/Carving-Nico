@@ -132,7 +132,6 @@ export const WorkItemTemplate = ({
 // Export Default WorkItem for front-end
 const WorkItem = ({ data: { post, allPosts, workPage, contact, popup } }) => {
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
-  console.log(thisEdge)
   return (
     <Layout
       meta={post.frontmatter.meta || false}
