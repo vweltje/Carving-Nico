@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOMServer from 'react-dom/server'
+import { renderToStaticMarkup } from 'react-dom/server'
 import Marked from 'react-markdown'
 import PropTypes from 'prop-types'
 import Image from './Image'
@@ -25,7 +25,7 @@ const withContentImages = source => {
       title = /title="(.*?)"/g.exec(images[i])
     source = source.replace(
       images[i],
-      ReactDOMServer.renderToStaticMarkup(
+      renderToStaticMarkup(
         <Image
           resolutions="medium"
           className="Content--Image"
@@ -38,6 +38,20 @@ const withContentImages = source => {
     )
   }
 
+  return source
+}
+
+const replaceCustomSelectors = (source, selectors) => {
+  if (selectors && Object.keys(selectors).length) {
+    for (let selector in selectors) {
+      if (source.search(`{{${selector}}}`) >= 0) {
+        source = source.replace(
+          new RegExp(`{{${selector}}}`, 'g'),
+          renderToStaticMarkup(selectors[selector])
+        )
+      }
+    }
+  }
   return source
 }
 
@@ -67,11 +81,17 @@ const HtmlBlock = ({ value }) => {
   )
 }
 
-const Content = ({ source, src, className = '' }) => {
+const Content = ({
+  source,
+  src,
+  className = '',
+  customReplaceSelectors = false
+}) => {
   // accepts either html or markdown
   source = source || src || ''
   if (source.match(/^</)) {
     source = withContentImages(source)
+    source = replaceCustomSelectors(source, customReplaceSelectors)
 
     return (
       <div

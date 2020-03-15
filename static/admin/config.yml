@@ -400,7 +400,7 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
 
-  - name: popups
+  - name: popup
     label: Pop-ups
     editor:
       preview: true
@@ -412,7 +412,7 @@ collections: # A list of collections the CMS should be able to edit
           label: Template,
           name: template,
           widget: hidden,
-          default: PopupPreview,
+          default: DefaultPage,
         }
       - { label: Body, name: body, widget: markdown }
 

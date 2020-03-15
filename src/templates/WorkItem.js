@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, renderToString } from 'react'
 import get from 'lodash/get'
 import { Link, graphql } from 'gatsby'
 import { ChevronLeft } from 'react-feather'
@@ -23,10 +23,10 @@ export const WorkItemTemplate = ({
   prevPostURL,
   category,
   gallery,
-  contact
+  contact,
+  popup
 }) => {
   const [popupOpen, setPopupOpen] = useState(true)
-  console.log(slug)
   return (
     <main>
       <PageHeader
@@ -112,12 +112,15 @@ export const WorkItemTemplate = ({
         </div>
         {popup && (
           <Popup open={popupOpen} setOpen={setPopupOpen}>
-            <h3>Bestellen</h3>
-            Ben je geintresseerd in <Link to={slug}>{title}</Link> en wil je een
-            bestelling plaatsen? Laat dan hieronder jouw gegevens achter en ik
-            neem zo snel mogelijk contact met je op. <br />
-            Direct contact? Bel mij op:{' '}
-            <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+            <Content
+              source={popup.html}
+              customReplaceSelectors={{
+                project: <Link to="mijn-werk">{title}</Link>,
+                telefoonnummer: (
+                  <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+                )
+              }}
+            />
             <WorkForm />
           </Popup>
         )}
@@ -127,9 +130,8 @@ export const WorkItemTemplate = ({
 }
 
 // Export Default WorkItem for front-end
-const WorkItem = ({ data: { post, allPosts, workPage, contact } }) => {
+const WorkItem = ({ data: { post, allPosts, workPage, contact, popup } }) => {
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
-  console.log(post)
   return (
     <Layout
       meta={post.frontmatter.meta || false}
@@ -144,6 +146,7 @@ const WorkItem = ({ data: { post, allPosts, workPage, contact } }) => {
         nextPostURL={get(thisEdge, 'next.fields.slug')}
         prevPostURL={get(thisEdge, 'previous.fields.slug')}
         contact={get(contact, 'nodes[0].frontmatter')}
+        popup={get(popup, 'edges[0].node')}
       />
     </Layout>
   )
@@ -227,6 +230,19 @@ export const pageQuery = graphql`
       nodes {
         frontmatter {
           phone
+        }
+      }
+    }
+
+    popup: allMarkdownRemark(
+      filter: {
+        fields: { contentType: { eq: "popup" }, slug: { eq: "/bestellen/" } }
+      }
+      limit: 1
+    ) {
+      edges {
+        node {
+          html
         }
       }
     }
