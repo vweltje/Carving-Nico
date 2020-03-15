@@ -66,7 +66,6 @@ export const HomePageTemplate = ({ header, sections, work, workItems }) => (
           )}
         </div>
       </div>
-      )}
     </section>
   </main>
 )

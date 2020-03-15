@@ -67,7 +67,10 @@ export const WorkItemTemplate = ({
             </p>
           </div>
         }
-        backgroundImage={header.backgroundImage}
+        backgroundImage={
+          (header ? header.backgroundImage : false) ||
+          'https://ucarecdn.com/dad549d6-6efd-4ed0-98fb-cbecec73f43b/'
+        }
       />
       <article
         className="WorkItem section light"
@@ -85,35 +88,39 @@ export const WorkItemTemplate = ({
 
             <Gallery images={gallery} />
 
-            <div className="WorkItem--Pagination">
-              {prevPostURL && (
-                <Link
-                  className="WorkItem--Pagination--Link prev"
-                  to={prevPostURL}
-                >
-                  <ChevronLeft /> Vorige
-                </Link>
-              )}
-              {nextPostURL && (
-                <Link
-                  className="WorkItem--Pagination--Link next"
-                  to={nextPostURL}
-                >
-                  Volgende <ChevronRight />
-                </Link>
-              )}
-            </div>
+            {(prevPostURL || nextPostURL) && (
+              <div className="WorkItem--Pagination">
+                {prevPostURL && (
+                  <Link
+                    className="WorkItem--Pagination--Link prev"
+                    to={prevPostURL}
+                  >
+                    <ChevronLeft /> Vorige
+                  </Link>
+                )}
+                {nextPostURL && (
+                  <Link
+                    className="WorkItem--Pagination--Link next"
+                    to={nextPostURL}
+                  >
+                    Volgende <ChevronRight />
+                  </Link>
+                )}
+              </div>
+            )}
           </div>
         </div>
-        <Popup open={popupOpen} setOpen={setPopupOpen}>
-          <h3>Bestellen</h3>
-          Ben je geintresseerd in <Link to={slug}>{title}</Link> en wil je een
-          bestelling plaatsen? Laat dan hieronder jouw gegevens achter en ik
-          neem zo snel mogelijk contact met je op. <br />
-          Direct contact? Bel mij op:{' '}
-          <a href={`tel:${contact.phone}`}>{contact.phone}</a>
-          <WorkForm />
-        </Popup>
+        {popup && (
+          <Popup open={popupOpen} setOpen={setPopupOpen}>
+            <h3>Bestellen</h3>
+            Ben je geintresseerd in <Link to={slug}>{title}</Link> en wil je een
+            bestelling plaatsen? Laat dan hieronder jouw gegevens achter en ik
+            neem zo snel mogelijk contact met je op. <br />
+            Direct contact? Bel mij op:{' '}
+            <a href={`tel:${contact.phone}`}>{contact.phone}</a>
+            <WorkForm />
+          </Popup>
+        )}
       </article>
     </main>
   )

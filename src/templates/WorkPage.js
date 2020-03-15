@@ -71,7 +71,7 @@ export const WorkPageTemplate = ({
               buttons={[
                 {
                   type: 'primary',
-                  to: '/contact?suggestie',
+                  to: '/mijn-werk',
                   text: header.button1
                 }
               ]}

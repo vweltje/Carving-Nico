@@ -26,7 +26,7 @@ CMS.registerMediaLibrary(uploadcare)
 CMS.registerPreviewTemplate('home-page', ({ entry }) => (
   <HomePageTemplate {...entry.toJS().data} />
 ))
-CMS.registerPreviewTemplate('components-page', ({ entry }) => (
+CMS.registerPreviewTemplate('mijn-werk', ({ entry }) => (
   <WorkPageTemplate {...entry.toJS().data} />
 ))
 CMS.registerPreviewTemplate('contact-page', ({ entry }) => (
@@ -38,6 +38,6 @@ CMS.registerPreviewTemplate('info-page', ({ entry }) => (
 CMS.registerPreviewTemplate('about-page', ({ entry }) => (
   <AboutPageTemplate {...entry.toJS().data} />
 ))
-CMS.registerPreviewTemplate('werk', ({ entry }) => (
+CMS.registerPreviewTemplate('work', ({ entry }) => (
   <WorkItemTemplate {...entry.toJS().data} />
 ))
