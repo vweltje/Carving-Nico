@@ -131,6 +131,7 @@ export const WorkItemTemplate = ({
 
 // Export Default WorkItem for front-end
 const WorkItem = ({ data: { post, allPosts, workPage, contact, popup } }) => {
+  console.log(popup)
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
   return (
     <Layout
@@ -236,9 +237,9 @@ export const pageQuery = graphql`
 
     popup: allMarkdownRemark(
       filter: {
-        fields: { contentType: { eq: "popup" }, slug: { eq: "/bestellen/" } }
+        fields: { contentType: { eq: "popup" }, slug: {} }
+        fileAbsolutePath: { regex: "/(popup)/(bestellen)\\\\.md$/" }
       }
-      limit: 1
     ) {
       edges {
         node {
