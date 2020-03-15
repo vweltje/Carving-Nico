@@ -26,7 +26,7 @@ export const WorkItemTemplate = ({
   contact,
   popup
 }) => {
-  const [popupOpen, setPopupOpen] = useState(true)
+  const [popupOpen, setPopupOpen] = useState(false)
   return (
     <main>
       <PageHeader
@@ -132,6 +132,7 @@ export const WorkItemTemplate = ({
 // Export Default WorkItem for front-end
 const WorkItem = ({ data: { post, allPosts, workPage, contact, popup } }) => {
   const thisEdge = allPosts.edges.find(edge => edge.node.id === post.id)
+  console.log(thisEdge)
   return (
     <Layout
       meta={post.frontmatter.meta || false}
@@ -198,7 +199,7 @@ export const pageQuery = graphql`
     }
 
     allPosts: allMarkdownRemark(
-      filter: { fields: { contentType: { eq: "work" } } }
+      filter: { fields: { contentType: { eq: "werk" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
     ) {
       edges {
