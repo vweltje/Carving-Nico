@@ -400,6 +400,22 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
 
+  - name: popups
+    label: Pop-ups
+    editor:
+      preview: true
+    folder: content/infoPages
+    slug: '{{slug}}'
+    create: false # Dissallow users to create new documents in this collection
+    fields:
+      - {
+          label: Template,
+          name: template,
+          widget: hidden,
+          default: PopupPreview,
+        }
+      - { label: Body, name: body, widget: markdown }
+
   - name: info-page
     label: Informatie pagina's
     editor:

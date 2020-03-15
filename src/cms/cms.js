@@ -38,6 +38,6 @@ CMS.registerPreviewTemplate('info-page', ({ entry }) => (
 CMS.registerPreviewTemplate('about-page', ({ entry }) => (
   <AboutPageTemplate {...entry.toJS().data} />
 ))
-CMS.registerPreviewTemplate('posts', ({ entry }) => (
+CMS.registerPreviewTemplate('werk', ({ entry }) => (
   <WorkItemTemplate {...entry.toJS().data} />
 ))
