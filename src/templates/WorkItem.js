@@ -237,8 +237,8 @@ export const pageQuery = graphql`
 
     popup: allMarkdownRemark(
       filter: {
-        fields: { contentType: { eq: "popup" } }
-        fileAbsolutePath: { regex: "/(popup)/(bestellen)\\\\.md$/" }
+        fields: { contentType: { eq: "popups" } }
+        fileAbsolutePath: { regex: "/(popups)/(bestellen)\\\\.md$/" }
       }
     ) {
       edges {

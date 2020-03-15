@@ -400,21 +400,25 @@ collections: # A list of collections the CMS should be able to edit
               required: false,
             }
 
-  - name: popup
-    label: Pop-ups
+  - name: 'popups'
+    label: 'Pop-ups'
+    delete: false # Prevent users from deleting documents in this collection
     editor:
       preview: true
-    folder: content/popup
-    slug: '{{slug}}'
-    create: false # Dissallow users to create new documents in this collection
-    fields:
-      - {
-          label: Template,
-          name: template,
-          widget: hidden,
-          default: DefaultPage,
-        }
-      - { label: Body, name: body, widget: markdown }
+    files:
+      - file: 'content/popups/bestellen.md'
+        label: 'Bestellen'
+        name: 'bestellen'
+        fields:
+          - {
+              label: Template,
+              name: template,
+              widget: hidden,
+              default: DefaultPage,
+            }
+          - { label: Slug, name: slug, widget: hidden, default: 'bestellen' }
+          - { label: Titel, name: title, widget: hidden, default: 'Bestellen' }
+          - { label: Body, name: body, widget: markdown }
 
   - name: info-page
     label: Informatie pagina's
