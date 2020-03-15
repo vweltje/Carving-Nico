@@ -4,8 +4,8 @@ slug: mijn-werk
 header:
   title: Mijn werk
   introText: >-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.
+    Ik maak met mijn kettingzagen diverse objecten en sculpturen van hout, hier
+    ziet U een overzicht van mijn werk.
   backgroundImage: 'https://ucarecdn.com/dad549d6-6efd-4ed0-98fb-cbecec73f43b/'
   subtitle: ''
   button1: Over de artist

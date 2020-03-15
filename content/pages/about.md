@@ -5,8 +5,9 @@ header:
   backgroundImage: 'https://ucarecdn.com/00c938b8-8446-4f95-8aec-3a8d0dcf8a6b/'
   title: Over mij
   introText: >-
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-    tempor incididunt ut labore et dolore magna aliqua.
+    Ik ben al sinds een aantal jaren gefascineerd wat je allemaal van hout kan
+    maken, van poppenhuizen, vogelhuisjes tot kleine boomspeelhuisjes voor in
+    huis. En sinds kort ben ik bezig met de kettingzaag wat erg inspirerend is.
 aboutSection:
   tekst: >-
     > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
