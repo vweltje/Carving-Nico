@@ -8,7 +8,7 @@ header:
     tempor incididunt ut labore et dolore magna aliqua.
   backgroundImage: 'https://ucarecdn.com/dad549d6-6efd-4ed0-98fb-cbecec73f43b/'
   subtitle: ''
-  button1: Doe een sugestie
+  button1: Over de artist
 textSection: >-
   ### Lorem ipsum dolor
 
