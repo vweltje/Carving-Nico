@@ -43,6 +43,10 @@
   padding: 1rem 0;
 }
 
+.pswp__caption__center {
+  text-align: center !important;
+}
+
 @supports (object-fit: cover) {
   .Gallery--Item img {
     position: relative;
