@@ -116,16 +116,6 @@ class Form extends React.Component {
             />
             <span>Bericht</span>
           </label>
-          <label className="Form--Label Form-Checkbox">
-            <input
-              className="Form--Input Form--Textarea Form--CheckboxInput"
-              name="voorwaarden"
-              type="checkbox"
-            />
-            <span>
-              Ik ga akkoord met de <Link to="/voorwarden">voorwaarden</Link>
-            </span>
-          </label>
           <div
             className="g-recaptcha"
             data-sitekey="6LfIq98UAAAAALcfJLl1wstv3pJlp5FweJWS34Fs"
