@@ -1,12 +1,12 @@
 <heml>
   <head>
-    <subject>Confirm Change of Email</subject>
+    <subject>Bevestig veranderen e-mail</subject>
     <style>
       body {
         text-align: center;
       }
       .button {
-        background: #366dc7;
+        background: #c79656;
       }
       .logo {
         margin: 25px auto;
@@ -18,9 +18,9 @@
   <body>
     <container>
       <img class='logo' src='{{ .SiteURL }}/images/logo.png' />
-      <h2>Confirm Change of Email</h2>
-      <p>Follow this link to confirm the update of your email from {{ .Email }} to {{ .NewEmail }}:</p>
-      <button class='button' href="{{ .ConfirmationURL }}" style="margin: auto;">Change Email</button>
+      <h2>Bevestig email weiziging</h2>
+      <p>Click op deze link om te bevestigen dat je jouw email wil veranderen van {{ .Email }} naar {{ .NewEmail }}:</p>
+      <button class='button' href="{{ .ConfirmationURL }}" style="margin: auto;">Update email</button>
     </container>
   </body>
 </heml>

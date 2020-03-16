@@ -1,12 +1,12 @@
 <heml>
   <head>
-    <subject>Confirm your signup</subject>
+    <subject>Bevestig inschrijving</subject>
     <style>
       body {
         text-align: center;
       }
       .button {
-        background: #366dc7;
+        background: #c79656;
       }
       .logo {
         margin: 25px auto;
@@ -18,9 +18,9 @@
   <body>
     <container>
       <img class='logo' src='{{ .SiteURL }}/images/logo.png' />
-      <h2>Confirm your signup</h2>
-      <p>Follow this link to confirm your account:</p>
-      <button class='button' href="{{ .ConfirmationURL }}" style="margin: auto;">Confirm your mail</button>
+      <h2>Bevestig inschrijving</h2>
+      <p>Click op deze link om je account te bevestigen:</p>
+      <button class='button' href="{{ .ConfirmationURL }}" style="margin: auto;">Bevestig account</button>
     </container>
   </body>
 </heml>

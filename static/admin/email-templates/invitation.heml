@@ -1,12 +1,12 @@
 <heml>
   <head>
-    <subject>You have been invited!</subject>
+    <subject>Je bent uitgenodigd!</subject>
     <style>
       body {
         text-align: center;
       }
       .button {
-        background: #366dc7;
+        background: #c79656;
       }
       .logo {
         margin: 25px auto;
@@ -18,9 +18,9 @@
   <body>
     <container>
       <img class='logo' src='{{ .SiteURL }}/images/logo.png' />
-      <h2>You have been invited</h2>
-      <p>You have been invited to create a user on {{ .SiteURL }}</p>
-      <button class='button' href="{{ .ConfirmationURL }}" style="margin: auto;">Accept the invite</button>
+      <h2>Je bent uitgenodigd</h2>
+      <p>Je bent uitgenodigd om een account te registreren op {{ .SiteURL }}</p>
+      <button class='button' href="{{ .ConfirmationURL }}" style="margin: auto;">Accepteer uitnodiging</button>
     </container>
   </body>
 </heml>
