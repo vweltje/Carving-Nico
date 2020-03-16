@@ -121,7 +121,7 @@ export const WorkItemTemplate = ({
                 )
               }}
             />
-            <WorkForm />
+            <WorkForm workItemName={title} />
           </Popup>
         )}
       </article>

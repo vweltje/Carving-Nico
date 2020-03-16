@@ -56,7 +56,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const { name, subject, action, workItem } = this.props
+    const { name, subject, action, workItemName } = this.props
 
     return (
       <Fragment>
@@ -110,7 +110,7 @@ class Form extends React.Component {
             className="g-recaptcha"
             data-sitekey="6LfIq98UAAAAALcfJLl1wstv3pJlp5FweJWS34Fs"
           ></div>
-          <input type="hidden" name="project" value={workItem} />
+          <input type="hidden" name="geintreseerd-in" value={workItemName} />
           <input type="hidden" name="form-name" value={name} />
           <input
             className="Button Form--SubmitButton"
