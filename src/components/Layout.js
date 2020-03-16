@@ -32,6 +32,7 @@ export default ({ children, meta, title }) => {
             <Helmet
               defaultTitle={siteTitle}
               titleTemplate={`%s | ${siteTitle}`}
+              htmlAttributes={{ lang: 'nl' }}
             >
               {title}
               <link href="https://ucarecdn.com" rel="preconnect" crossorigin />
