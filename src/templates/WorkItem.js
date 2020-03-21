@@ -66,7 +66,7 @@ export const WorkItemTemplate = ({
           </div>
         }
         backgroundImage={
-          (header ? header.backgroundImage : false) ||
+          get(header, 'backgroundImage') ||
           'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
         }
       />
@@ -108,7 +108,7 @@ export const WorkItemTemplate = ({
             )}
           </div>
         </div>
-        {popup && (
+        {get(popup, 'html') && (
           <Popup open={popupOpen} setOpen={setPopupOpen}>
             <Content
               source={popup.html || ''}
