@@ -397,7 +397,7 @@ collections: # A list of collections the CMS should be able to edit
     label: 'Pop-ups'
     delete: false # Prevent users from deleting documents in this collection
     editor:
-      preview: true
+      preview: false
     files:
       - file: 'content/popups/bestellen.md'
         label: 'Bestellen'
