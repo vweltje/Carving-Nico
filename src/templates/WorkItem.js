@@ -25,6 +25,10 @@ export const WorkItemTemplate = ({
   popup
 }) => {
   const [popupOpen, setPopupOpen] = useState(false)
+  const dateObject = date ? new Date(date) : false
+  const dateString = dateObject
+    ? `${dateObject.getDate()}-${dateObject.getMonth()}-${dateObject.getFullYear()}`
+    : ''
   return (
     <main>
       <PageHeader
@@ -46,14 +50,14 @@ export const WorkItemTemplate = ({
                 <time
                   className="WorkItem--Meta--Date"
                   itemProp="dateCreated pubdate datePublished"
-                  date={date}
+                  date={dateString}
                 >
-                  {date}
+                  {dateString}
                 </time>
               )}
               {category && (
                 <Fragment>
-                  <span>|</span>
+                  <span> | </span>
                   {category && (
                     <span key={category} className="WorkItem--Meta--Category">
                       {category}
@@ -166,7 +170,7 @@ export const pageQuery = graphql`
         slug
         title
         template
-        date(formatString: "MMMM Do, YYYY")
+        date
         price
         category
       }
