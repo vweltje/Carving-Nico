@@ -2,18 +2,18 @@ const postcssPresetEnv = require('postcss-preset-env')
 
 module.exports = {
   siteMetadata: {
-    title: 'Yelloecake',
-    siteUrl: 'https://yellowcake.netlify.com'
+    title: 'Carvingnico',
+    siteUrl: 'https://carvingnico.nl'
   },
   plugins: [
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-yaml',
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: 'gatsby-plugin-robots-txt',
       options: {
-        /*id: 'GTM-add_your_tag_here',*/
-        id: 'GTM-P4RNF8D',
-        includeInDevelopment: false
+        host: 'https://carvingnico.nl',
+        sitemap: 'https://carvingnico.nl/sitemap.xml',
+        policy: [{ userAgent: '*', disallow: '/' }]
       }
     },
     {
@@ -44,11 +44,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'yellowcake',
-        short_name: 'yellowcake',
+        name: 'carvingnico',
+        short_name: 'carvingnico',
         start_url: '/',
-        background_color: '#00C2BD',
-        theme_color: '#00C2BD',
+        background_color: '#4a372b',
+        theme_color: '#4a372b',
         // Enables "Add to Homescreen" prompt and disables browser UI (including back button)
         // see https://developers.google.com/web/fundamentals/web-app-manifest/#display
         display: 'standalone',
