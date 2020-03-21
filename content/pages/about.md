@@ -2,7 +2,7 @@
 template: AboutPage
 slug: over-mij
 header:
-  backgroundImage: 'https://ucarecdn.com/00c938b8-8446-4f95-8aec-3a8d0dcf8a6b/'
+  backgroundImage: 'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
   title: Over mij
   introText: >-
     Ik ben al sinds een aantal jaren gefascineerd wat je allemaal van hout kan
@@ -42,7 +42,7 @@ aboutSection:
     eget arcu dictum varius duis. Ut etiam sit amet nisl purus. Nunc lobortis
     mattis aliquam faucibus purus in. Nullam non nisi est sit.
   title: Dit ben ik
-  image: 'https://ucarecdn.com/41412a69-1718-4584-a5fe-ff27f56241ad/'
+  image: 'https://ucarecdn.com/da7b3c58-9777-4335-8a74-b853177a1f19/'
   quote: '> Lorem ipsum dolor sit amet, consectetur adipiscing elit'
 meta:
   description: Op deze pagina kom je te weten wie de persoon achter carvingnico is

@@ -6,7 +6,7 @@ header:
   introText: >-
     Ik maak met mijn kettingzagen diverse objecten en sculpturen van hout, hier
     ziet U een overzicht van mijn werk.
-  backgroundImage: 'https://ucarecdn.com/dad549d6-6efd-4ed0-98fb-cbecec73f43b/'
+  backgroundImage: 'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
   subtitle: ''
   button1: Over de artist
 textSection: >-

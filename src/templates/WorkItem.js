@@ -69,7 +69,7 @@ export const WorkItemTemplate = ({
         }
         backgroundImage={
           (header ? header.backgroundImage : false) ||
-          'https://ucarecdn.com/dad549d6-6efd-4ed0-98fb-cbecec73f43b/'
+          'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
         }
       />
       <article
