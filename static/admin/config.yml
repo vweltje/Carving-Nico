@@ -303,7 +303,13 @@ collections: # A list of collections the CMS should be able to edit
     fields: # The fields each document in this collection have
       - { label: Template, name: template, widget: hidden, default: WorkItem }
       - { label: Titel, name: title, widget: string, required: true }
-      - { label: Datum, name: date, widget: date, required: true }
+      - {
+          label: Datum,
+          name: date,
+          widget: date,
+          format: 'MM DD YYYY',
+          required: true,
+        }
       - { label: Prijs, name: price, widget: text, required: false }
       - { label: Beschrijving, name: body, widget: markdown, required: true }
       - label: 'Categorie'
