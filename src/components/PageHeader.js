@@ -29,10 +29,14 @@ const PageHeader = ({
         />
       )}
       <div className="container relative">
-        <h1 className="PageHeader--Title">
-          {title}
-          {subtitle && <span className="PageHeader--Subtitle">{subtitle}</span>}
-        </h1>
+        {title && (
+          <h1 className="PageHeader--Title">
+            {title}
+            {subtitle && (
+              <span className="PageHeader--Subtitle">{subtitle}</span>
+            )}
+          </h1>
+        )}
         {content && <p className="PageHeader--Text">{content}</p>}
         {smallContent && (
           <div className="PageHeader--TextSmall">{smallContent}</div>
