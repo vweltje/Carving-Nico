@@ -307,7 +307,7 @@ collections: # A list of collections the CMS should be able to edit
           label: Datum,
           name: date,
           widget: date,
-          format: 'MM DD YYYY',
+          format: 'MM/DD/YYYY',
           required: true,
         }
       - { label: Prijs, name: price, widget: text, required: false }

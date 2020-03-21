@@ -1,7 +1,7 @@
 ---
 template: WorkItem
 title: Vincent test
-date: '03 21 2020'
+date: '03/21/2020'
 price: '123'
 category: Te koop
 gallery:
