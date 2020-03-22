@@ -116,7 +116,6 @@ export const pageQuery = graphql`
         work {
           title
           tekst
-          button1
         }
       }
     }
