@@ -14,7 +14,7 @@ sections:
   - button1: Bekijk mijn werk
     image: 'https://ucarecdn.com/5a8b88e2-617f-4732-b940-563d975e9ae7/'
     tekst: >-
-      > Ik ben eenkunstenaar die gespecialiseerd is in houtsculptuur
+      > Ik ben een kunstenaar die gespecialiseerd is in houtsculptuur
 
 
       Ik gebruik verschillende kettingzagen en beitels om dode, omgevallen bomen
