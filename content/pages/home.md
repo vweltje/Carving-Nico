@@ -18,7 +18,7 @@ sections:
 
 
       Ik gebruik verschillende kettingzagen en machines om  bomen te recyclen,
-      en maak er prachtige kunstwerken van.
+      en maak er unieke kunstwerken van.
     title: Welkom op mijn website
   - button1: Bekijk mijn werk
     image: 'https://ucarecdn.com/8836a80d-8826-47f9-b94c-4f4e468a554a/'
