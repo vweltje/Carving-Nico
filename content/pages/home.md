@@ -14,7 +14,8 @@ sections:
   - button1: Bekijk mijn werk
     image: 'https://ucarecdn.com/5a8b88e2-617f-4732-b940-563d975e9ae7/'
     tekst: >-
-      > Ik ben een kunstenaar die gespecialiseerd is in houtsculptuur
+      > Ik ben een beginnend kettingzaag/carver kunstenaar die zich bezig houd
+      met het bewerken van diverse soorten hout.
 
 
       Ik gebruik verschillende kettingzagen en machines om  bomen te recyclen,
