@@ -18,7 +18,7 @@ sections:
       met het bewerken van diverse soorten hout.
 
 
-      Ik gebruik verschillende kettingzagen en machines om  bomen te recyclen,
+      Ik gebruik verschillende kettingzagen en machines om  bomen te bewerken,
       en maak er unieke kunstwerken van.
     title: Welkom op mijn website
   - button1: Bekijk mijn werk
@@ -27,12 +27,15 @@ sections:
       > Ik zal me even voorstellen
 
 
-      mijn naam is Nico Kussendrager en ben woonachtig in de provincie Drenthe.
-      Ik maak objecten van hout, Na het volgen van een cursus ben ik sinds een
-      paar maanden bezig met het maken van houten beelden met een kettingzaag,
-      het zogenaamde Carving, en ieder stuk is uniek, ik doe dit voor als nog
-      als hobby en met veel plezier, maar ik hoop dat ik in de toekomst hier
-      verder mee kan gaan.
+      mijn naam is Nico Kussendrager en ik woon in de mooie provincie Drenthe.
+      Ik maak objecten van hout. 
+
+
+      Na het volgen van een cursus ben ik sinds een paar maanden bezig met het
+      maken van houten beelden met behulp van een kettingzaag, het zogenaamde
+      Carving. Ieder stuk is uniek, ik laat mij leiden door de basisvorm van het
+      hout. Nu is het nog een hele fijne creatieve hobby maar ik hoop dit in de
+      toekomst nog verder uit te bouwen.
     title: Wie ben ik
 work:
   tekst: >-
