@@ -7,7 +7,7 @@ header:
   button2: Lees over de artiest
   introText: >-
     Met mijn kettingzaag transformeer ik oude bomen naar prachtig houten
-    sculpturen
+    sculpturen.
   subtitle: handgemaakte sculpturen
   title: Carving Nico
 sections:
@@ -43,7 +43,9 @@ work:
     item? Vraag de prijs op door op de knop te drukken
   title: Mijn laatste projecten
 meta:
-  description: Mijn naam is Nico Kussendrager en ik maak objecten van hout.
+  description: >-
+    Met mijn kettingzaag transformeer ik oude bomen naar prachtig houten
+    sculpturen.
   title: Carving Nico | Home
 ---
 
