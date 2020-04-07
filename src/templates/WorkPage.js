@@ -157,7 +157,6 @@ export const pageQuery = graphql`
           subtitle
           button1
         }
-        workGridTitle
       }
     }
 
