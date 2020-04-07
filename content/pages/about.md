@@ -13,7 +13,10 @@ aboutSection:
   tekst: '>'
   title: Dit ben ik
 meta:
-  description: Op deze pagina kom je te weten wie de persoon achter carvingnico is
+  description: >-
+    Ik ben al sinds een aantal jaren gefascineerd door wat je allemaal van hout
+    kan maken, van poppenhuizen, vogelhuisjes tot kleine boomspeelhuisjes voor
+    in huis. Sinds kort ben ik bezig met de kettingzaag wat erg inspirerend is.
   title: Over mij
 ---
 
