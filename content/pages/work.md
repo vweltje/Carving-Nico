@@ -2,21 +2,17 @@
 template: WorkPage
 slug: mijn-werk
 header:
-  title: Mijn werk
+  backgroundImage: 'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
+  button1: Over de artist
   introText: >-
     Ik maak met mijn kettingzagen diverse objecten en sculpturen van hout, hier
     ziet U een overzicht van mijn werk.
-  backgroundImage: 'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
   subtitle: ''
-  button1: Over de artist
-textSection: >-
-  ### Lorem ipsum dolor
-
-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-  incididunt ut labore et dolore magna aliqua.
-workGridTitle: Al mijn werk op een rijtje
+  title: Mijn werk
 meta:
-  description: Hier vind je al mijn werk
+  description: >-
+    Ik maak met mijn kettingzagen diverse objecten en sculpturen van hout, hier
+    ziet U een overzicht van mijn werk.
   title: Mijn werk
 ---
+
