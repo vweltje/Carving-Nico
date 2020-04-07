@@ -13,7 +13,7 @@ module.exports = {
       options: {
         host: 'https://carvingnico.nl',
         sitemap: 'https://carvingnico.nl/sitemap.xml',
-        policy: [{ userAgent: '*', disallow: '/' }]
+        policy: [{ userAgent: '*', allow: '/' }]
       }
     },
     {
