@@ -9,8 +9,6 @@ header:
   backgroundImage: 'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
   subtitle: ''
   button1: Over de artist
-textSection: >-
-  ### Lorem ipsum dolor
 
 
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
