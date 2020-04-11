@@ -8,8 +8,6 @@ header:
   introText: >-
     Met mijn kettingzaag transformeer ik oude bomen naar prachtig houten
     sculpturen.
-
-    test
   subtitle: handgemaakte sculpturen
   title: Carving Nico
 sections:
