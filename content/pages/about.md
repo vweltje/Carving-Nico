@@ -2,7 +2,8 @@
 template: AboutPage
 slug: over-mij
 header:
-  backgroundImage: 'https://ucarecdn.com/6242ca40-21bc-4182-a275-d39962cdc7e6/'
+  backgroundImage: >-
+    https://ucarecdn.com/b05073e5-a52a-480b-bc3f-468660f05f73/-/preview/-/rotate/180/
   introText: >-
     Ik ben al sinds een aantal jaren gefascineerd door wat je allemaal van hout
     kan maken, van poppenhuizen, vogelhuisjes tot kleine boomspeelhuisjes voor
