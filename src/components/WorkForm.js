@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
-import { Link } from 'gatsby'
 import { stringify } from 'qs'
 import { serialize } from 'dom-form-serializer'
 
@@ -56,7 +55,7 @@ class Form extends React.Component {
   }
 
   render() {
-    const { name, subject, action, workItemName } = this.props
+    const { name, action, workItemName } = this.props
 
     return (
       <Fragment>

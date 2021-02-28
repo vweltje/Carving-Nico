@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import InstagramFeed from './InstagramFeed'
 import './Footer.css'
 
 export default () => (
